@@ -1,0 +1,2 @@
+ID,DepartureStation,ArrivalStation,ticket_amount,ticket_price,departure_time,arrival_time,train_date,book_date,created,modified,book_status,train_id,member_id
+1,°ò¶©,«ÌªF,3,2610,06:13:00,12:33:00,2022/1/14,2022/1/14,2022/1/12 10:00,2022/1/12 10:00,0,105,1
