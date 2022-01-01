@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>EZ定火車</title>
+    <title>EZ訂火車</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -64,9 +64,9 @@
 
             <li class="dropdown"><a href="#"><span>會員服務</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="pagesRegister.html">會員登入</a></li>
-                <li><a href="pagesMemberProfile".html">會員資料</a></li>
-                <li><a href="pagesForgetPassword".html">忘記密碼</a></li>
+                <li><a href="pagesLogin.html">會員登入</a></li>
+                <li><a href="pagesRegister.html".html">會員註冊</a></li>
+                <li><a href="pagesMemberProfile".html">會員更改資料</a></li>
               </ul>
             </li>
 
@@ -75,7 +75,7 @@
               <ul>
                 <li><a href="pagesBooking.html">個人訂票</a></li>
                 <li><a href="pagesBookingRecord".html">歷史訂票紀錄</a></li>
-                <li><a href="pagesCountPrice".html">票價試算</a></li>
+                <li><a href="order_detail.html".html">訂票結果</a></li>
               </ul>
             </li>
             <li><a href="pagesLogin.html">登入</a></li>
@@ -144,18 +144,18 @@
 
                     <form class="row g-3 needs-validation" novalidate>
                       <div class="col-12">
-                        <label for="yourUsername" class="form-label"
-                          >使用者名稱</label
+                        <label for="yourEmail" class="form-label"
+                          >請輸入Email</label
                         >
                         <div class="input-group has-validation">
                           <!-- <span class="input-group-text" id="inputGroupPrepend"
                             >@</span
                           > -->
                           <input
-                            type="text"
-                            name="username"
+                            type="email"
+                            name="email"
                             class="form-control"
-                            id="yourUsername"
+                            id="yourEmail"
                             required
                           />
                           <div class="invalid-feedback">
@@ -204,10 +204,6 @@
                         <p class="small mb-0">
                           沒有帳號?
                           <a href="pagesRegister.html">註冊帳號</a>
-                        </p>
-                        <p class="small mb-0">
-                          忘記密碼?
-                          <a href="pagesForgetPassword.html">忘記密碼</a>
                         </p>
                       </div>
                     </form>
