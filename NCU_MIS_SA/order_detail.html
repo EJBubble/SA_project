@@ -8,7 +8,7 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
 
-  <title>訂單詳情 ｜ NCU MIS SA</title>
+  <title>訂單詳情</title>
 
   <!-- Bootstrap core CSS -->
   <link href="statics/css/bootstrap.min.css" rel="stylesheet">
@@ -85,9 +85,9 @@
 
           <li class="dropdown"><a href="#"><span>會員服務</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="pagesRegister.html">會員登入</a></li>
-              <li><a href="pagesMemberProfile".html">會員資料</a></li>
-              <li><a href="pagesForgetPassword".html">忘記密碼</a></li>
+              <li><a href="pagesLogin.html">會員登入</a></li>
+              <li><a href="pagesRegister.html".html">會員註冊</a></li>
+              <li><a href="pagesMemberProfile".html">會員更改資料</a></li>
             </ul>
           </li>
 
@@ -96,7 +96,7 @@
             <ul>
               <li><a href="pagesBooking.html">個人訂票</a></li>
               <li><a href="pagesBookingRecord".html">歷史訂票紀錄</a></li>
-              <li><a href="pagesCountPrice".html">票價試算</a></li>
+              <li><a href="order_detail.html".html">訂票結果</a></li>
             </ul>
           </li>
           <li><a href="pagesLogin.html">登入</a></li>
@@ -173,13 +173,6 @@
           </div>
          </div>
          
-         <div class="media text-muted pt-3">
-           <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-             <strong class="d-block text-gray-dark">住址</strong>
-             <span id="address">{{address}}</span>
-           </p>
-         </div>
-         
          <div class="row">
                     
          </div>
@@ -239,7 +232,6 @@
 	  $("#create").html(data['order_info']['create']);
 	  $("#modify").html(data['order_info']['modify']);
 	  $("#email").html(data['order_info']['email']);
-	  $("#address").html(data['order_info']['address']);
 	  $("#phone").html(data['order_info']['phone']);
 	  $("#first_name").html(data['order_info']['first_name']);
 	  $("#last_name").html(data['order_info']['last_name']);
