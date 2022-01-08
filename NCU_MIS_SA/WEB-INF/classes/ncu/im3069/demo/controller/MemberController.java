@@ -2,6 +2,7 @@ package ncu.im3069.demo.controller;
 
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import org.json.*;
 import ncu.im3069.demo.app.Member;
@@ -19,7 +20,7 @@ import ncu.im3069.tools.JsonReader;
  * @version 1.0.0
  * @since 1.0.0
  */
-
+@WebServlet("/api/samember.do")
 public class MemberController extends HttpServlet {
     
     /** The Constant serialVersionUID. */
@@ -46,9 +47,10 @@ public class MemberController extends HttpServlet {
         String email = jso.getString("email");
         String password = jso.getString("password");
         String name = jso.getString("name");
+        String phone = jso.getString("phone");
         
         /** 建立一個新的會員物件 */
-        Member m = new Member(email, password, name);
+        Member m = new Member(email, password, name, phone);
         
         /** 後端檢查是否有欄位為空值，若有則回傳錯誤訊息 */
         if(email.isEmpty() || password.isEmpty() || name.isEmpty()) {
@@ -172,9 +174,10 @@ public class MemberController extends HttpServlet {
         String email = jso.getString("email");
         String password = jso.getString("password");
         String name = jso.getString("name");
+        String phone = jso.getString("phone");
 
         /** 透過傳入之參數，新建一個以這些參數之會員Member物件 */
-        Member m = new Member(id, email, password, name);
+        Member m = new Member(id, email, password, name, phone);
         
         /** 透過Member物件的update()方法至資料庫更新該名會員資料，回傳之資料為JSONObject物件 */
         JSONObject data = m.update();
