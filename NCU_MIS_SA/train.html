@@ -125,6 +125,51 @@
 		border-radius: 0.3rem !important;
 	}
 
+	.content-table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		top: 100px;
+		margin-bottom: 30px;
+		padding-top: 50px;
+		font-size: 0.9em;
+		min-width: 400px;
+		border-radius: 5px 5px 0 0;
+		overflow: hidden;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+		width: 100%;
+		margin: auto;
+	}
+
+	.content-table thead tr {
+		/* background-color: #009879; */
+		background-color:#0e9c26;
+		color: #ffffff;
+		text-align: left;
+		font-weight: bold;
+	}
+
+	.content-table th,
+	.content-table td {
+		padding: 12px 15px;
+	}
+
+	.content-table tbody tr {
+		border-bottom: 1px solid #dddddd;
+	}
+
+	.content-table tbody tr:nth-of-type(even) {
+		background-color: #f3f3f3;
+	}
+
+	.content-table tbody tr:last-of-type {
+		border-bottom: 2px solid #009879;
+	}
+
+	.content-table tbody tr.active-row {
+		font-weight: bold;
+		color: #009879;
+	}
+
 </style>
 
 	<!-- /*外文版的css*/ -->
@@ -216,9 +261,9 @@
 		
 		})
 		
-		if(!(document.cookie || navigator.cookieEnabled)){
-			alert("\u8ACB\u5C07\u700F\u89BD\u5668\u8A2D\u70BA\u555F\u7528 Cookies \u3002 Cookie \u662F\u5132\u5B58\u5728\u60A8\u96FB\u8166\u4E2D\u6709\u52A9\u65BC\u7CFB\u7D71\u904B\u4F5C\u7684\u6A94\u6848\u3002\u5982\u679C\u7121\u6CD5\u6B63\u5E38\u4F7F\u7528\u672C\u7DB2\u7AD9\u76F8\u95DC\u529F\u80FD\uFF0C\u8ACB\u6AA2\u67E5\u60A8\u7684\u700F\u89BD\u5668\u662F\u5426\u5DF2\u8A2D\u70BA\u63A5\u53D7 Cookie\u3002\u5982\u679C\u672A\u8A2D\u5B9A\u63A5\u53D7Cookie\uFF0C\u53EF\u80FD\u5C31\u6C92\u6709\u8FA6\u6CD5\u4FDD\u6301\u6B63\u5E38\u64CD\u4F5C\u3002");
-		};
+		// if(!(document.cookie || navigator.cookieEnabled)){
+		// 	alert("\u8ACB\u5C07\u700F\u89BD\u5668\u8A2D\u70BA\u555F\u7528 Cookies \u3002 Cookie \u662F\u5132\u5B58\u5728\u60A8\u96FB\u8166\u4E2D\u6709\u52A9\u65BC\u7CFB\u7D71\u904B\u4F5C\u7684\u6A94\u6848\u3002\u5982\u679C\u7121\u6CD5\u6B63\u5E38\u4F7F\u7528\u672C\u7DB2\u7AD9\u76F8\u95DC\u529F\u80FD\uFF0C\u8ACB\u6AA2\u67E5\u60A8\u7684\u700F\u89BD\u5668\u662F\u5426\u5DF2\u8A2D\u70BA\u63A5\u53D7 Cookie\u3002\u5982\u679C\u672A\u8A2D\u5B9A\u63A5\u53D7Cookie\uFF0C\u53EF\u80FD\u5C31\u6C92\u6709\u8FA6\u6CD5\u4FDD\u6301\u6B63\u5E38\u64CD\u4F5C\u3002");
+		// };
 		
 		$(function(){
 			// <!--離開語言切換menu，將該menu收合-->
@@ -271,29 +316,12 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a href="indexA.html" class="active">Home</a></li>
-
-          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
           <li><a href="railway.html">關於台鐵</a></li>
           <li><a href="travel.html">旅遊票券</a></li>
           <li><a href="railwaypolice.html">鐵路警察局</a></li>
           <li><a href="contact.html">聯絡客服</a></li>
           <li><a href="train.html">列車查詢</a></li>
+		  <li><a href="booking.html">訂票</a></li>
           <li><a href="pagesLogin.html">登入</a></li>
           <li><a href="pagesRegister.html">註冊</a></li>
 
@@ -3704,7 +3732,8 @@
 			<br></br>
 		</div>
 		<div id="pageContent">
-		<form id="queryForm" action="/tra-tip-web/tip/tip001/tip112/querybytime" method="post"><input type="hidden" name="_csrf" value="874afc42-8101-47c0-915c-24bec4ef0a90"/>
+		<!-- <form id="queryForm" action="/tra-tip-web/tip/tip001/tip112/querybytime" method="post"><input type="hidden" name="_csrf" value="874afc42-8101-47c0-915c-24bec4ef0a90"/> -->
+		<div id="queryForm" action="/tra-tip-web/tip/tip001/tip112/querybytime" method="post"><input type="hidden" name="_csrf" value="874afc42-8101-47c0-915c-24bec4ef0a90"/>
 			<!--搜尋區塊-->
 			<div class="panel-area">
 				<div class="column">
@@ -3768,7 +3797,7 @@
 							<label class="rideDate" for="rideDate">日期</label>
 						</div>
 						<div class="input-wrapper">
-							<input type="text" data-plugin="datepicker" class="rideDate" placeholder="YYYY/MM/DD" data-date-start-date="+0d" id="rideDate" name="rideDate" value="2021/12/19">
+							<input type="text" data-plugin="datepicker" class="rideDate" placeholder="YYYY/MM/DD" data-date-start-date="+0d" id="rideDate" name="rideDate" value="">
 							<button type="button" class="icon icon-calendar datepicker" title="選擇日期">選擇日期</button>
 						</div>
 					</div>
@@ -3959,7 +3988,9 @@
 					
 					<!--確認按鈕-->
 					<div class="btn-sentgroup">
-						<input type="submit" class="btn btn-3d" title="查詢" value="查詢" name="query" />
+						<a href="queryResult.html">
+							<input type="submit" class="btn btn-3d" title="查詢" value="查詢" name="query"/>
+						</a>
 					</div>
 				</div>
 				<br>
@@ -3969,8 +4000,64 @@
 			<!--搜尋區塊 end-->
 			
 			<!--進階篩選 end-->
-		</form>
+		<!-- </form> -->
+		</div>
 		<!--已開放訂購-->
+			<table class="content-table">
+				<thead>
+				<tr>
+					<th>車種車次 (始發站 → 終點站)</th>
+					<th>出發時間</th>
+					<th>抵達時間</th>
+					<th>行駛時間</th>
+					<th>票價</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>Alfreds Futterkiste</td>
+					<td>Maria Anders</td>
+					<td>Germany</td>
+					<td>Germany</td>
+					<td>Germany</td>
+				</tr>
+				<tr>
+					<td>Centro comercial Moctezuma</td>
+					<td>Francisco Chang</td>
+					<td>Mexico</td>
+					<td>Mexico</td>
+					<td>Mexico</td>
+				</tr>
+				<tr>
+					<td>Ernst Handel</td>
+					<td>Roland Mendel</td>
+					<td>Austria</td>
+					<td>Austria</td>
+					<td>Austria</td>
+				</tr>
+				<tr>
+					<td>Island Trading</td>
+					<td>Helen Bennett</td>
+					<td>UK</td>
+					<td>UK</td>
+					<td>UK</td>
+				</tr>
+				<tr>
+					<td>Laughing Bacchus Winecellars</td>
+					<td>Yoshi Tannamuri</td>
+					<td>Canada</td>
+					<td>Canada</td>
+					<td>Canada</td>
+				</tr>
+				<tr>
+					<td>Magazzini Alimentari Riuniti</td>
+					<td>Giovanni Rovelli</td>
+					<td>Italy</td>
+					<td>Italy</td>
+					<td>Italy</td>
+				</tr>
+				</tbody>
+			</table>
 		
 
 	</div>
@@ -4149,6 +4236,8 @@
 	</div> -->
 	<!--表尾 footer END -->
 
+	<!-- 查詢結果 -->
+
 	<script>
         $().ready(function() {
         	//datepicker: 日期範圍 今天(+0d) ~ 未來(null，Default)
@@ -4317,7 +4406,7 @@
 	    	$('#queryForm').attr('target','_blank')
 	    	$('#queryForm').submit();
 	    	$.unblockUI();
-	    	$('#queryForm').attr('action','/tra-tip-web/tip/tip001/tip112/querybytime')
+	    	$('#queryForm').attr('action','/NCU_MIS_SA/train.html')
 	    	$('#queryForm').attr('target','')
 		})
 		
@@ -4427,6 +4516,18 @@
 	    	$.unblockUI();
 		});
 		
+		Date.prototype.yyyymmdd = function() {
+			var mm = this.getMonth() + 1; // getMonth() is zero-based
+			var dd = this.getDate();
+
+			return [this.getFullYear(),
+					(mm>9 ? '' : '0') + mm,
+					(dd>9 ? '' : '0') + dd
+					].join('/');
+		};
+
+		document.getElementById('rideDate').value = new Date().yyyymmdd();
+
     </script>
 
 	<!-- Template Main JS File -->

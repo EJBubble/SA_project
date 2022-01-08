@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZ訂火車</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/styleA.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    /> -->
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="Lib\sha1.js"></script>
+    <style>
+      .box{
+        font-family: "Open Sans", sans-serif;
+        color: #4d4643;
+        margin-top: 150px;
+      }
+      .booking-zone {
+        display: flex;
+      }
+      .booking-form {
+        border: 1px solid #ccc;
+        width: 80%;
+        margin: auto;
+        border-radius: 5px 5px 5px 5px;
+        overflow: hidden;
+        box-shadow: 0 3px 5px rgb(0 0 0 / 30%);
+        padding: 18px 16px;
+        background: linear-gradient(
+          to bottom,
+          #f7f7f7 1%,
+          #ffffff 8%,
+          #ffffff 84%,
+          #f4f4f4 100%
+        );
+      }
+      .booking-date {
+        margin: 0 24px 0 0;
+      }
+      .mycol {
+        padding: 8px 28px 8px 16px;
+      }
+      .mydate {
+        padding: 8px;
+        height: 41px;
+      }
+      .column {
+        padding: 4px 0;
+      }
+      .btn-3d {
+        min-width: 200px !important;
+        background-color: #0E9C26 !important;
+        border: #0E9C26;
+      }
+      .btn{
+          margin: 0 0 0 8px ;
+          padding: 8px 16px ;
+          /* background-color: #0E9C26 !important; */
+          border: #0E9C26;
+      }
+      .sending {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+      }
+      .wrapper{
+        background: #fff;
+        padding: 8px;
+        border: 1px solid #b1b1b1;
+        max-height: 52px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        border-radius: 5px; 
+        margin-bottom: 8px;
+      }
+      .zone-wrapper{
+        margin: 0 24px 0 0;
+        width: 300px;
+      }
+      .mytext{
+        border: none;
+        margin-right: 5px;
+      }
+      .col{
+        border: none;
+        width: 280px;
+      }
+      .city{
+        padding-right: 20px;
+      }
+
+    </style>
+
+    <!-- =======================================================
+  * Template Name: Company - v4.7.0
+  * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+            <h1 class="logo me-auto"><a href="indexA.html"><span>EZ</span>訂火車</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+    
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                <li><a href="indexA.html" class="active">Home</a></li>
+
+                <li><a href="railway.html">關於台鐵</a></li>
+                <li><a href="travel.html">旅遊票券</a></li>
+                <li><a href="railwaypolice.html">鐵路警察局</a></li>
+                <li><a href="contact.html">聯絡客服</a></li>
+                <li><a href="train.html">列車查詢</a></li>
+                <li><a href="booking.html">訂票</a></li>
+                <li><a href="pagesLogin.html">登入</a></li>
+                <li><a href="pagesRegister.html">註冊</a></li>
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+    <!-- .navbar -->
+
+    <div class="header-social-links d-flex">
+                <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+    <div class="box">
+      <form class="booking-form" action="bookingResult.html" method="GET">
+        <div class="zone-wrapper">
+          <div class="station">
+            <label for="startStation">出發站</label><br>
+            <div class="wrapper" >
+              <!-- <input class="mytext" id="mytext1" type="text" placeholder="台北" disabled></input> -->
+              <div class="myStation" id="startStation">
+                <!-- <select class="col city">
+                  <option value="" selected></option>
+                  <option value="00:00">00:00</option>
+                  <option value="00:30">00:30</option>
+                  <option value="01:00">01:00</option>
+                </select> -->
+              </div>
+              <br/>
+            </div>
+            <div id="demo"></div>
+            <br />
+
+            <label for="endStation">抵達站</label><br>
+            <div class="wrapper" >
+              <!-- <input class="mytext" id="mytext2" type="text" placeholder="台北" disabled></input> -->
+              <div class="myStation" id="endStation">
+                <!-- <select class="col city">
+                  <option value="" selected></option>
+                  <option value="00:00">00:00</option>
+                  <option value="00:30">00:30</option>
+                  <option value="01:00">01:00</option>
+                </select> -->
+              </div><br/>
+            </div>
+            <div id="demo1"></div>
+            <br />
+          </div>
+        </div>
+        <div class="column booking-zone">
+          <div class="booking-date">
+            <label>日期</label><br />
+            <input type="date" data-plugin="datepicker" class="mydate" name="date" placeholder="YYYY/MM/DD" data-date-start-date="+0d" id="rideDate" value="rideDate" min="rideDate" max="rideDate">
+          </div>
+          <div class="booking-time">
+            <label>時段</label><br />
+            <select class="mycol mytime" name="start-time" id="startTime">
+              <option value="00:00">00:00</option>
+              <option value="00:30">00:30</option>
+              <option value="01:00">01:00</option>
+              <option value="01:30">01:30</option>
+              <option value="02:00">02:00</option>
+              <option value="02:30">02:30</option>
+              <option value="03:00">03:00</option>
+              <option value="03:30">03:30</option>
+              <option value="04:00">04:00</option>
+              <option value="04:30">04:30</option>
+              <option value="05:00">05:00</option>
+              <option value="05:30">05:30</option>
+              <option value="06:00">06:00</option>
+              <option value="06:30">06:30</option>
+              <option value="07:00">07:00</option>
+              <option value="07:30">07:30</option>
+              <option value="08:00">08:00</option>
+              <option value="08:30">08:30</option>
+              <option value="09:00">09:00</option>
+              <option value="09:30">09:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30" selected="selected">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+              <option value="23:59">23:59</option>
+            </select>
+            <span>至</span>
+            <select class="mycol mytime" name="end-time" id="endTime">
+              <option value="00:00">00:00</option>
+              <option value="00:30">00:30</option>
+              <option value="01:00">01:00</option>
+              <option value="01:30">01:30</option>
+              <option value="02:00">02:00</option>
+              <option value="02:30">02:30</option>
+              <option value="03:00">03:00</option>
+              <option value="03:30">03:30</option>
+              <option value="04:00">04:00</option>
+              <option value="04:30">04:30</option>
+              <option value="05:00">05:00</option>
+              <option value="05:30">05:30</option>
+              <option value="06:00">06:00</option>
+              <option value="06:30">06:30</option>
+              <option value="07:00">07:00</option>
+              <option value="07:30">07:30</option>
+              <option value="08:00">08:00</option>
+              <option value="08:30">08:30</option>
+              <option value="09:00">09:00</option>
+              <option value="09:30">09:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30" selected="selected">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+              <option value="23:59">23:59</option>
+            </select><br /><br />
+          </div>
+
+        </div>
+        <div class="column trainTitle">
+          <label>車種</label>
+        </div>
+        <div class="trainType" >
+          <label class="btn btn-lg btn-linear btn-outline-success" >
+            <input type="checkbox" name="train1" autocomplete="off" required/>
+            太魯閣
+          </label>
+          <label class="btn btn-lg btn-linear btn-outline-success" >
+            <input type="checkbox" name="train2" autocomplete="off"  required/>
+            普悠瑪
+          </label>
+          <label class="btn btn-lg btn-linear btn-outline-success" >
+            <input type="checkbox" name="train3" autocomplete="off" required/>
+            自強
+          </label>
+          <label class="btn btn-lg btn-linear btn-outline-success">
+            <input type="checkbox" name="train4" autocomplete="off" required/>
+            莒光
+          </label>
+          <label class="btn btn-lg btn-linear btn-outline-success">
+            <input type="checkbox" name="train5" autocomplete="off" required/>
+            復興
+          </label>
+        </div>
+        <div class="column ticketAmount">
+          <br />
+          <label for="ticketAmount">一般坐票數</label>
+          <input type="number" name="ticketAmount" placeholder="1" min="0" max="3" value="1"/><br /><br />
+        </div>
+
+        <div class="sending">
+          <input
+            type="submit"
+            value="訂票"
+            class="btn btn-3d btn-lg btn-linear active btn-outline-success"
+          />
+        </div>
+      </form>
+    </div>
+
+    <script>
+      Date.prototype.yyyymmdd = function() {
+        var mm = this.getMonth() + 1; // getMonth() is zero-based
+        var dd = this.getDate();
+
+        return [this.getFullYear(),
+            (mm>9 ? '' : '0') + mm,
+            (dd>9 ? '' : '0') + dd
+            ].join('-');
+		  };
+
+      function addDaysToDate(date, days) {
+        var res = new Date(date);
+        res.setDate(res.getDate() + days);
+        return res;
+      }
+
+		  document.getElementById('rideDate').value = new Date().yyyymmdd();
+      document.getElementById('rideDate').min = new Date().yyyymmdd();
+      document.getElementById('rideDate').max = addDaysToDate(new Date(), 30).yyyymmdd(); // 最多+30天
+
+      var currentdate = new Date();
+      function getStartTime(){
+        var currentdate = new Date();
+        var dateTime = currentdate.getHours()+":"+ currentdate.getMinutes();
+        var hours;
+        if(currentdate.getHours()<10){
+          hours = "0"+currentdate.getHours();
+        }else{
+          hours = currentdate.getHours();
+        }
+
+        if(currentdate.getMinutes()<30){
+          return dateTime = hours+":00";
+        }else{
+          return dateTime = hours+":30";
+        }
+      }
+      document.getElementById("startTime").value = getStartTime();
+
+      function getEndTime(){
+        var today = new Date();
+        var dateTime = today.getHours()+":"+ today.getMinutes();
+        var endTime;
+        
+        if(today.getHours()+8>23){
+          endTime = "23:59"
+        }else if(today.getMinutes()<30){
+          if(today.getHours()+8>10){
+            endTime = `0${today.getHours()+8}:00`;;
+          }else{
+            endTime = `0${today.getHours()+8}:00`;
+            console.log(endTime)
+          }
+        }else{
+          endTime = today.getHours()+8+":30";
+        }
+        return endTime;
+      }
+      document.getElementById("endTime").value = getEndTime();
+
+      function GetAuthorizationHeader() {
+        var AppID = '93df3352968146dca77666d751874f2a';
+        var AppKey = 'Z3x9SNuDREIfaEalHiZkH0IWV7o';
+
+        var GMTString = new Date().toGMTString();
+        var ShaObj = new jsSHA('SHA-1', 'TEXT');
+        ShaObj.setHMACKey(AppKey, 'TEXT');
+        ShaObj.update('x-date: ' + GMTString);
+        var HMAC = ShaObj.getHMAC('B64');
+        var Authorization = 'hmac username=\"' + AppID + '\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"' + HMAC + '\"';
+
+        return { 'Authorization': Authorization, 'X-Date': GMTString ,'Accept-Encoding': 'gzip'}; //如果要將js運行在伺服器，可額外加入 'Accept-Encoding': 'gzip'，要求壓縮以減少網路傳輸資料量
+      }
+
+      async function fetchData() {
+        const response = await fetch('https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/Station?%24top=300&%24format=JSON', {
+          headers: GetAuthorizationHeader()
+        })
+        const data = await response.json()
+        const cities = data.map(data => data.LocationCity)
+        const result = [...new Set(cities)] // 篩選把重複的去掉
+        console.log(result.join(''))
+        const stationName = data.map(data => data.StationName.Zh_tw)
+        
+        document.getElementById('startStation').innerHTML =  `
+            <select class="col startStation " id="select-startStation" name="startStation" required="required">
+                <option value="" disabled selected>車站</option>
+                ${stationName.map(res => `
+                    <option value="${res}">${res}</option>
+                `).join('')}
+            </select>
+        `
+        document.getElementById('endStation').innerHTML =  `
+            <select class="col endStation " id="select-endStation" name="endStation" required="required">
+                <option value="" disabled selected>車站</option>
+                ${stationName.map(res => `
+                    <option value="${res}">${res}</option>
+                `).join('')}
+            </select>
+        `
+
+        let selectStartStation;
+        let selectEndStation;
+        const selectElement = document.getElementById('select-startStation');
+        selectElement.addEventListener('change', (event) => {
+          selectStartStation = event.target.value;
+          // console.log(selectStartStation);
+        });
+        const selectStation = document.getElementById('select-endStation');
+        selectStation.addEventListener('change', (event) => {
+          selectEndStation = event.target.value;
+          // console.log(selectEndStation);
+          if(selectStartStation == selectEndStation){
+            if(selectStartStation === '車站'){
+            }else{
+              document.getElementById('demo').innerHTML = `
+                <p style="color:red;">出發站與抵達站不能相同</p>
+              `
+              document.getElementById('demo1').innerHTML = `
+                <p style="color:red;">出發站與抵達站不能相同</p>
+              `
+            }
+          }
+        })
+
+      }
+
+      fetchData()
+          .then(res => console.log('success'))
+          .catch(err => console.log('error', err))
+          
+      // 至少勾選一個 全部、對號、非對號
+      $(function(){
+          var requiredCheckboxes = $('.trainType :checkbox[required]');
+          requiredCheckboxes.change(function(){
+            if(requiredCheckboxes.is(':checked')) {
+              requiredCheckboxes.removeAttr('required');
+              console.log("removed");
+            } else {
+              requiredCheckboxes.attr('required', 'required');
+            }
+          });
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  </body>
+</html>
