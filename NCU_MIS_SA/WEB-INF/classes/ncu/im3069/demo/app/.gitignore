@@ -6,3 +6,8 @@
 /OrderItemHelper.class
 /Product.class
 /ProductHelper.class
+/Train.class
+/TrainDetail.class
+/Book.class
+/TrainController.class
+/TrainHelper.class
