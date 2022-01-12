@@ -4,9 +4,70 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZ訂火車</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+      crossorigin="anonymous"
+    />
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/styleA.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    /> -->
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-2.1.4.min.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script type="text/javascript" src="Lib\sha1.js"></script>
     <title>查詢結果</title>
 
     <style>
+      .header{
+        position: relative;
+      }
       table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -22,10 +83,12 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         width: 80%;
         margin: auto;
+        position: relative;
+        margin-top: 100px;
       }
 
       .content-table thead tr {
-        background-color: #009879;
+        background-color: #0E9C26 ;
         color: #ffffff;
         text-align: left;
         font-weight: bold;
@@ -45,16 +108,49 @@
       }
 
       .content-table tbody tr:last-of-type {
-        border-bottom: 2px solid #009879;
+        border-bottom: 2px solid #0E9C26;
       }
 
       .content-table tbody tr.active-row {
         font-weight: bold;
-        color: #009879;
+        color: #0E9C26;
       }
     </style>
   </head>
   <body>
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+              <h1 class="logo me-auto"><a href="indexA.html"><span>EZ</span>訂火車</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+      
+              <nav id="navbar" class="navbar order-last order-lg-0">
+                  <ul>
+                  <li><a href="indexA.html" class="active">Home</a></li>
+  
+                  <li><a href="railway.html">關於台鐵</a></li>
+                  <li><a href="travel.html">旅遊票券</a></li>
+                  <li><a href="railwaypolice.html">鐵路警察局</a></li>
+                  <li><a href="contact.html">聯絡客服</a></li>
+                  <li><a href="train.html">列車查詢</a></li>
+                  <li><a href="booking.html">訂票</a></li>
+                  <li><a href="pagesLogin.html">登入</a></li>
+                  <li><a href="pagesRegister.html">註冊</a></li>
+  
+                  </ul>
+                  <i class="bi bi-list mobile-nav-toggle"></i>
+              </nav>
+      <!-- .navbar -->
+  
+      <div class="header-social-links d-flex">
+                  <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+                  <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
+            </div>
+        </div>
+    </header>
+      <!-- End Header -->
     <table class="content-table">
       <thead>
         <tr>
@@ -65,15 +161,8 @@
           <th>票價</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-          <td>Germany</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
+      <tbody id="results">
+        <!-- <tr>
           <td>Centro comercial Moctezuma</td>
           <td>Francisco Chang</td>
           <td>Mexico</td>
@@ -107,8 +196,157 @@
           <td>Italy</td>
           <td>Italy</td>
           <td>Italy</td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
+    <script>
+      function GetAuthorizationHeader() {
+        var AppID = "93df3352968146dca77666d751874f2a";
+        var AppKey = "Z3x9SNuDREIfaEalHiZkH0IWV7o";
+
+        var GMTString = new Date().toGMTString();
+        var ShaObj = new jsSHA("SHA-1", "TEXT");
+        ShaObj.setHMACKey(AppKey, "TEXT");
+        ShaObj.update("x-date: " + GMTString);
+        var HMAC = ShaObj.getHMAC("B64");
+        var Authorization =
+          'hmac username="' +
+          AppID +
+          '", algorithm="hmac-sha1", headers="x-date", signature="' +
+          HMAC +
+          '"';
+
+        return {
+          Authorization: Authorization,
+          "X-Date": GMTString,
+          "Accept-Encoding": "gzip",
+        }; //如果要將js運行在伺服器，可額外加入 'Accept-Encoding': 'gzip'，要求壓縮以減少網路傳輸資料量
+      }
+      
+      function ridingTime(start, end){
+        let valuestart = moment.duration(start, "HH:mm");
+        let valuestop = moment.duration(end, "HH:mm");
+        let difference = valuestop.subtract(valuestart);
+        if(difference.hours()>0){
+          return difference.hours() + " 小時 " + difference.minutes() + " 分";
+        }else{
+          return difference.minutes() + " 分";
+        }
+      }
+
+      function getPrice(trainTypeName, fares){
+        let price;
+        if(trainTypeName.includes("區間")) {
+          price = fares[0][15].Price;
+        }else if(trainTypeName.includes("自強") || trainTypeName.includes("普悠瑪") || trainTypeName.includes("太魯閣")){
+          price = fares[0][0].Price;
+        }else if(trainTypeName.includes("復興")){
+          price = fares[0][10].Price;
+        }else if(trainTypeName.includes("莒光")){
+          price = fares[0][5].Price;
+        }
+        return price;
+      }
+
+      async function fetchResult() {
+        let date;
+        let startStationID;
+        let endStationID;
+        startStationID = new URL(location.href).searchParams.get(
+          "startStation"
+        );
+        date = new URL(location.href).searchParams.get("date");
+        endStationID = new URL(location.href).searchParams.get("endStation");
+        startTime = new URL(location.href).searchParams.get("start-time");
+        endTime = new URL(location.href).searchParams.get("end-time");
+        console.log("startTime", startTime);
+        // console.log("startStationID", startStationID);
+        // console.log("endStation", endStationID);
+        // console.log("date", date);
+
+        const response = await fetch(
+          `https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/DailyTimetable/OD/${startStationID}/to/${endStationID}/${date}?%24format=JSON`,
+          {
+            headers: GetAuthorizationHeader(),
+          }
+        );
+        const data = await response.json();
+        console.log("result", data);
+        const TrainTypeName = data.map(
+          (res) => res.DailyTrainInfo.TrainTypeName.Zh_tw
+        ); // 車種
+        const TrainNo = data.map((res) => res.DailyTrainInfo.TrainNo); // 車次
+        const startingStation = data.map(
+          (res) => res.DailyTrainInfo.StartingStationName.Zh_tw
+        ); // 始發站
+        const endingStationName = data.map(
+          (res) => res.DailyTrainInfo.EndingStationName.Zh_tw
+        ); // 終點站
+        const originStopTime = data.map(
+          (res) => res.OriginStopTime.DepartureTime
+        ); // 出發時間
+        const destinationStopTime = data.map(
+          (res) => res.DestinationStopTime.ArrivalTime
+        ); //抵達時間
+
+        const tableData = [
+          TrainTypeName,
+          TrainNo,
+          startingStation,
+          endingStationName,
+          originStopTime,
+          destinationStopTime,
+        ];
+        console.log("tabledata", tableData);
+        
+        const fares = await fetchPrice(startStationID, endStationID); // 票價及種類
+        console.log("farresssss", fares);
+        
+        if(data.length === 0){
+          window.alert("查無資料!");
+        }
+        var mytable = "<table>";
+        for (let j = 0; j < TrainNo.length; j++) {
+          if (
+            originStopTime[j] >= startTime &&
+            destinationStopTime[j] <= endTime
+          ) {
+
+            mytable += `<tr><td>  ${TrainTypeName[j]}  ${TrainNo[j]} (${startingStation[j]} → ${endingStationName[j]}) </td>`;
+            mytable += "<td>" + originStopTime[j] + "</td>";
+            mytable += "<td>" + destinationStopTime[j] + "</td>";
+            mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
+            mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td></tr>";
+          }
+        }
+
+        mytable += "</table>";
+        document.getElementById("results").innerHTML = mytable;
+        // console.log("O", originStopTime);
+        // console.log("D", destinationStopTime);
+        // console.log("s", startingStation);
+        // console.log("e", endingStationName);
+        // console.log(TrainTypeName);
+        // console.log(TrainNo);
+
+      }
+
+      fetchResult()
+        .then((res) => console.log("success"))
+        .catch((err) => console.log("error", err));
+
+      async function fetchPrice(startStationID, endStationID){
+        const response = await fetch(
+          `https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/ODFare/${startStationID}/to/${endStationID}?%24format=JSON`,
+          {
+            headers: GetAuthorizationHeader(),
+          }
+        );
+        const data = await response.json();
+        // console.log("price", data);
+        const fares = data.map((res)=>(res.Fares));
+        return fares;
+      }
+    </script>
   </body>
 </html>

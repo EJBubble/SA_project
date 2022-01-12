@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>EZ訂火車</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assetsA/img/favicon.png" rel="icon" />
+    <link href="assetsA/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assetsA/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assetsA/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assetsA/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="assetsA/vendor/quill/quill.snow.css" rel="stylesheet" />
+    <link href="assetsA/vendor/quill/quill.bubble.css" rel="stylesheet" />
+    <link href="assetsA/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assetsA/vendor/simple-datatables/style.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assetsA/css/style.css" rel="stylesheet" />
+    <link href="assets/css/styleA.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+
+        <h1 class="logo me-auto"><a href="indexA.html"><span>EZ</span>訂火車</a></h1>
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+              <li><a href="indexA.html" class="active">主頁面</a></li>
+
+              <li class="dropdown"><a href="#"><span>會員服務</span> <i class="bi bi-chevron-down"></i></a>
+               <ul>
+                  <li><a href="pagesRegister.html">會員登入</a></li>
+                  <li><a href="pagesMemberProfile".html>會員資料</a></li>
+                  <li><a href="pagesForgetPassword".html>忘記密碼</a></li>
+               </ul>
+              </li>
+
+              <li><a href="pagesTrainTime".html>列車時刻</a></li>
+              <li class="dropdown"><a href="#"><span>線上訂票</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="pagesBooking.html">個人訂票</a></li>
+                  <li><a href="pagesBookingRecord".html>歷史訂票紀錄</a></li>
+                  <li><a href="pagesCountPrice".html>票價試算</a></li>
+                </ul>
+              </li>
+              <li><a href="pagesLogin.html">登入</a></li>
+              <li><a href="pagesRegister.html">註冊</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+        <div class="header-social-links d-flex">
+            <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
+        </div>
+
+        </div>
+    </header><!-- End Header -->
+
+    <main>
+      <div class="container">
+        <section>
+          
+                <div class="d-flex justify-content-center py-4">
+                  <a
+                    href="index.html"
+                    class="logo d-flex align-items-center w-auto"
+                  >
+
+                  </a>
+                </div>
+                <!-- End Logo -->
+
+                
+                <div class="card mb-3">
+                  <div class="card-body">
+                    
+
+                    
+                      <div class="card-body pt-3">
+                        <!-- Bordered Tabs -->
+                        <ul class="nav nav-tabs nav-tabs-bordered">
+          
+                          <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">會員資料</button>
+                          </li>
+          
+                          <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-account">更改會員帳號</button>
+                          </li>
+          
+                          <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-E-mail">更改會員E-mail</button>
+                          </li>
+          
+                          <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-name">更改會員名稱</button>
+                          </li>
+          
+                          <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">更改會員密碼</button>
+                          </li>
+          
+                        </ul>
+                        <div class="tab-content pt-2">
+          
+                          <div class="tab-pane fade show active profile-overview" id="profile-overview">       
+          
+                            <h5 class="card-title">會員資料</h5>
+          
+                            <div class="row">
+                              <div class="col-lg-3 col-md-4 label ">會員帳號</div>
+                              <div class="col-lg-9 col-md-8">a1234567879</div>
+                            </div>
+          
+                            <div class="row">
+                              <div class="col-lg-3 col-md-4 label">E-mail</div>
+                              <div class="col-lg-9 col-md-8">b987654321@gmail.com</div>
+                            </div>
+          
+                            <div class="row">
+                              <div class="col-lg-3 col-md-4 label">會員名稱</div>
+                              <div class="col-lg-9 col-md-8">abc</div>
+                            </div>
+          
+                            <div class="row">
+                              <div class="col-lg-3 col-md-4 label">密碼</div>
+                              <div class="col-lg-9 col-md-8">123456789</div>
+                            </div>
+          
+                          </div>  
+
+                          <div class="tab-pane fade pt-3" id="profile-change-password">
+                            <!-- Change Password Form -->
+                            <form>
+          
+                              <div class="row mb-3">
+                                <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">原密碼</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="password" type="password" class="form-control" id="currentPassword" required/>
+                                </div>
+                              </div>
+          
+                              <div class="row mb-3">
+                                <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">新密碼</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="newpassword" type="password" class="form-control" id="newPassword" required/>
+                                </div>
+                              </div>
+          
+                              <div class="row mb-3">
+                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">再次輸入新密碼</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="renewpassword" type="password" class="form-control" id="renewPassword" required>
+                                </div>
+                              </div>
+          
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-primary">更改</button>
+                              </div>
+                            </form><!-- End Change Password Form -->          
+                          </div>
+
+                          <div class="tab-pane fade pt-3" id="profile-change-account">
+                            <!-- change-account Form -->
+                            <form>
+          
+                              <div class="row mb-3">
+                                <label for="currentAccount" class="col-md-4 col-lg-3 col-form-label">原帳號</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="account" type="account" class="form-control" id="currentAccount" required/>
+                                  <div class="invalid-feedback">
+                                    請輸入你的原帳號!
+                                   </div>
+                                </div>
+                              </div>
+          
+                              <div class="row mb-3">
+                                <label for="newAccount" class="col-md-4 col-lg-3 col-form-label">新帳號</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="newaccount" type="account" class="form-control" id="newAccount" required/>
+                                  <div class="invalid-feedback">
+                                    請輸入你的新帳號!
+                                   </div>
+                                </div>
+                              </div>
+                             
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-primary">更改</button>
+                              </div>
+                            </form><!-- End change-account Form -->
+          
+                          </div>                                  
+          
+                          <div class="tab-pane fade pt-3" id="profile-change-E-mail" >
+                            <!-- change-E-mail Form -->
+                            <form>
+          
+                              <div class="row mb-3">
+                                <label for="currentE-mail" class="col-md-4 col-lg-3 col-form-label">原E-mail</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="E-mail" type="E-mail" class="form-control" id="currentE-mail" required/>
+                                  <div class="invalid-feedback">
+                                    請輸入你的原E-mail!
+                                   </div>
+                                </div>
+                              </div>
+          
+                              <div class="row mb-3">
+                                <label for="newE-mail" class="col-md-4 col-lg-3 col-form-label">新E-mail</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="newE-mail" type="E-mail" class="form-control" id="newE-mail" required/>
+                                  <div class="invalid-feedback">
+                                    請輸入你的新E-mail!
+                                   </div>
+                                </div>
+                              </div>
+                             
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-primary">更改</button>
+                              </div>
+                            </form><!-- End change-E-mail Form -->
+          
+                          </div>
+          
+                          <div class="tab-pane fade pt-3" id="profile-change-name">
+                            <!-- change-name Form -->
+                            <form>
+          
+                              <div class="row mb-3">
+                                <label for="currentName" class="col-md-4 col-lg-3 col-form-label">原名稱</label>
+                                <div class="col-md-8 col-lg-9" novalidate>
+                                  <input name="name" type="text" class="form-control" id="currentName" required/>                             
+                                  <div class="invalid-feedback">
+                                   請輸入你的原名稱!
+                                  </div>
+                                </div>
+                              </div>
+          
+                              <div class="row mb-3">
+                                <label for="newName" class="col-md-4 col-lg-3 col-form-label">新名稱</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="newname" type="text" class="form-control" id="newName" required/>
+                                  <div class="invalid-feedback">
+                                    請輸入你的新名稱!
+                                  </div>
+                                </div>
+                              </div>
+                             
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-primary">更改</button>
+                              </div>
+                            </form><!-- End change-name Form -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- Vendor JS Files -->
+    <script src="assetsA/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assetsA/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assetsA/vendor/chart.js/chart.min.js"></script>
+    <script src="assetsA/vendor/echarts/echarts.min.js"></script>
+    <script src="assetsA/vendor/quill/quill.min.js"></script>
+    <script src="assetsA/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assetsA/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assetsA/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assetsA/js/main.js"></script>
+  </body>
+</html>
