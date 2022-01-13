@@ -178,7 +178,7 @@
     </header>
     <!-- End Header -->
     <div class="box">
-      <form class="booking-form" action="checkout.html" method="GET">
+      <form class="booking-form" action="bookResult.html" method="GET">
         <div class="zone-wrapper">
           <div class="station">
             <label for="startStation">出發站</label><br>
@@ -331,23 +331,23 @@
         </div>
         <div class="trainType" >
           <label class="btn btn-lg btn-linear btn-outline-success" >
-            <input type="checkbox" name="train1" autocomplete="off" required/>
+            <input type="checkbox" name="train1" value="太魯閣" autocomplete="off" required/>
             太魯閣
           </label>
           <label class="btn btn-lg btn-linear btn-outline-success" >
-            <input type="checkbox" name="train2" autocomplete="off"  required/>
+            <input type="checkbox" name="train2" value="普悠瑪" autocomplete="off"  required/>
             普悠瑪
           </label>
           <label class="btn btn-lg btn-linear btn-outline-success" >
-            <input type="checkbox" name="train3" autocomplete="off" required/>
+            <input type="checkbox" name="train3" value="自強" autocomplete="off" required/>
             自強
           </label>
           <label class="btn btn-lg btn-linear btn-outline-success">
-            <input type="checkbox" name="train4" autocomplete="off" required/>
+            <input type="checkbox" name="train4" value="莒光" autocomplete="off" required/>
             莒光
           </label>
           <label class="btn btn-lg btn-linear btn-outline-success">
-            <input type="checkbox" name="train5" autocomplete="off" required/>
+            <input type="checkbox" name="train5" value="復興" autocomplete="off" required/>
             復興
           </label>
         </div>
@@ -362,6 +362,7 @@
             type="submit"
             value="訂票"
             class="btn btn-3d btn-lg btn-linear active btn-outline-success"
+            id = "send"
           />
         </div>
       </form>
@@ -447,6 +448,7 @@
           headers: GetAuthorizationHeader()
         })
         const data = await response.json()
+        const stationsID = data.map(data => data.StationID) // 車站ID
         const cities = data.map(data => data.LocationCity)
         const result = [...new Set(cities)] // 篩選把重複的去掉
         console.log(result.join(''))
@@ -455,16 +457,16 @@
         document.getElementById('startStation').innerHTML =  `
             <select class="col startStation " id="select-startStation" name="startStation" required="required">
                 <option value="" disabled selected>車站</option>
-                ${stationName.map(res => `
-                    <option value="${res}">${res}</option>
+                ${stationName.map((res, index) => `
+                    <option id ="${stationsID[index]}" value="${stationsID[index]}${res}">${res}</option>
                 `).join('')}
             </select>
         `
         document.getElementById('endStation').innerHTML =  `
             <select class="col endStation " id="select-endStation" name="endStation" required="required">
                 <option value="" disabled selected>車站</option>
-                ${stationName.map(res => `
-                    <option value="${res}">${res}</option>
+                ${stationName.map((res, index) => `
+                    <option id="${stationsID[index]}" value="${stationsID[index]}${res}">${res}</option>
                 `).join('')}
             </select>
         `
@@ -498,6 +500,8 @@
       fetchData()
           .then(res => console.log('success'))
           .catch(err => console.log('error', err))
+
+    
           
       // 至少勾選一個 全部、對號、非對號
       $(function(){
@@ -511,6 +515,26 @@
             }
           });
         });
+
+      document.getElementById('send').addEventListener('click', (event) => {
+        isValid = document.forms['booking-form'].reportValidity();
+        if(isValid === true){
+          // event.preventDefault();
+          // fetchResult()
+          // .then(res => console.log('success'))
+          // .catch(err => console.log('error', err))
+          // const result = document.getElementById('resultTable');
+          // result.removeAttribute('hidden');
+          // window.scrollTo(0,document.body.scrollHeight);
+        } else {
+          window.alert("輸入資料有誤，請依下方提示檢查後重新填寫。");
+        }
+      })
+
+    </script>
+
+    <script>
+      // 訂票處理
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
