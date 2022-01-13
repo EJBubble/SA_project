@@ -252,13 +252,23 @@
 
       async function fetchResult() {
         let date;
-        let startStationID;
-        let endStationID;
-        startStationID = new URL(location.href).searchParams.get(
+        // 出發站名稱
+        let startStaionName = new URL(location.href).searchParams.get(
           "startStation"
-        );
+        ).substring(4);
+        // 出發站代碼
+        let startStationID = new URL(location.href).searchParams.get(
+          "startStation"
+        ).substring(0, 4);
+        let endStationName = new URL(location.href).searchParams.get(
+          "endStation"
+        ).substring(4);
+        let endStationID = new URL(location.href).searchParams.get(
+          "endStation"
+        ).substring(0, 4);
+        console.log("endStationName", endStationName)
+        console.log("endStationID", endStationID)
         date = new URL(location.href).searchParams.get("date");
-        endStationID = new URL(location.href).searchParams.get("endStation");
         startTime = new URL(location.href).searchParams.get("start-time");
         endTime = new URL(location.href).searchParams.get("end-time");
         // console.log("startTime", startTime);
@@ -336,7 +346,10 @@
                                 <input type="hidden" name="endingStationName" value="${endingStationName[j]}"/>
                                 <input type="hidden" name="originStopTime" value="${originStopTime[j]}"/>
                                 <input type="hidden" name="destinationStopTime" value="${destinationStopTime[j]}"/>
-                                <input type="hidden" name="fares" value="${getPrice(TrainTypeName[j], fares)}"/>
+                                <input type="hidden" name="fares" value="${getPrice(TrainTypeName[j], fares)}"/> 
+                                <input type="hidden" name="date" value="${date}"/>
+                                <input type="hidden" name="arrivalStation" value="${endStationName}"/>
+                                <input type="hidden" name="departureStation" value="${startStaionName}"/>
                                 <button type="submit" class="bi bi-link-45deg" style="border:none; border-radius:5px">
                                 </button>
                               </form>
@@ -370,6 +383,9 @@
                                   <input type="hidden" name="originStopTime" value="${originStopTime[j]}"/>
                                   <input type="hidden" name="destinationStopTime" value="${destinationStopTime[j]}"/>
                                   <input type="hidden" name="fares" value="${getPrice(TrainTypeName[j], fares)}"/>
+                                  <input type="hidden" name="date" value="${date}"/>
+                                  <input type="hidden" name="arrivalStation" value="${endStationName}"/>
+                                  <input type="hidden" name="departureStation" value="${startStaionName}"/>
                                   <button type="submit" class="bi bi-link-45deg" style="border:none; border-radius:5px">
                                   </button>
                                 </form>
