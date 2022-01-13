@@ -212,7 +212,7 @@ public class MemberHelper {
             /** 取得資料庫之連線 */
             conn = DBMgr.getConnection();
             /** SQL指令 */
-            String sql = "SELECT * FROM `saproject`.`member` WHERE `id` = ? LIMIT 1";
+            String sql = "SELECT * FROM `saproject`.`member` WHERE `ID` = ? LIMIT 1";
             
             /** 將參數回填至SQL指令當中 */
             pres = conn.prepareStatement(sql);
@@ -286,7 +286,7 @@ public class MemberHelper {
             /** 取得資料庫之連線 */
             conn = DBMgr.getConnection();
             /** SQL指令 */
-            String sql = "SELECT * FROM `missa`.`members` WHERE `id` = ? LIMIT 1";
+            String sql = "SELECT * FROM `missa`.`members` WHERE `ID` = ? LIMIT 1";
             
             /** 將參數回填至SQL指令當中 */
             pres = conn.prepareStatement(sql);
@@ -471,7 +471,7 @@ public class MemberHelper {
             pres = conn.prepareStatement(sql);
             pres.setString(1, name);
             pres.setString(2, password);
-            pres.setNString(3, phone);
+            pres.setString(3, phone);
             pres.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
             pres.setString(4, email);
             /** 執行更新之SQL指令並記錄影響之行數 */
@@ -634,7 +634,7 @@ public class MemberHelper {
                 row += 1;
                 
                 /** 將 ResultSet 之資料取出 */
-                int member_id = rs.getInt("id");
+                int member_id = rs.getInt("ID");
                 System.out.printf("id: %d\n", member_id);
                 String name = rs.getString("member_name");
                 String password = rs.getString("member_password");
