@@ -408,7 +408,9 @@
             非對號
           </label>
         </div>
-
+        <div id="member">
+         
+        </div>
         <div class="sending">
           <input
             type="submit"
@@ -479,6 +481,22 @@
     </div>
 
     <script>
+      // console.log("helllo");
+      let memberId = new URL(location.href).searchParams.get("id");
+      console.log("memberId", memberId);
+      if(memberId){
+        console.log("123")
+        document.getElementById("link1").href += `?id=${memberId}` 
+        document.getElementById("link2").href += `?id=${memberId}` 
+        document.getElementById("link3").href += `?id=${memberId}` 
+        document.getElementById("link4").href += `?id=${memberId}` 
+        document.getElementById("link5").href += `?id=${memberId}` 
+        document.getElementById("link6").href += `?id=${memberId}` 
+        document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
+        document.getElementById("link7").innerHTML = "登出" 
+        document.getElementById("link8").innerHTML = "會員修改"
+        document.getElementById("member").innerHTML =  `<input type="hidden" name="id" value=${memberId}/>`
+      }
       Date.prototype.yyyymmdd = function() {
         var mm = this.getMonth() + 1; // getMonth() is zero-based
         var dd = this.getDate();
@@ -673,29 +691,10 @@
         })
         const data = await response.json()
         console.log("result", data)
-      } 
-
-      
-
-    </script>
-
-    <script>
-      // console.log("helllo");
-      let memberId = new URL(location.href).searchParams.get("id");
-      console.log("memberId", memberId);
-      if(memberId){
-        console.log("123")
-        document.getElementById("link1").href += `?id=${memberId}` 
-        document.getElementById("link2").href += `?id=${memberId}` 
-        document.getElementById("link3").href += `?id=${memberId}` 
-        document.getElementById("link4").href += `?id=${memberId}` 
-        document.getElementById("link5").href += `?id=${memberId}` 
-        document.getElementById("link6").href += `?id=${memberId}` 
-        document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
-        document.getElementById("link7").innerHTML = "登出" 
-        document.getElementById("link8").innerHTML = "會員修改"
       }
+
     </script>
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
   </body>
