@@ -374,7 +374,8 @@
           }
           // 對號
           if(trainType === "2"){
-            if(TrainTypeName[j].includes(trains)){
+            // console.log("iiii", TrainTypeName[j].includes(trains))
+            if(trains.includes(TrainTypeName[j])){
               if(TrainTypeName[j].includes("自強") || TrainTypeName[j].includes("普悠瑪") || TrainTypeName[j].includes("太魯閣") || TrainTypeName[j].includes("莒光") || TrainTypeName[j].includes("復興")){
                 if (
                   originStopTime[j] >= startTime &&
@@ -443,7 +444,7 @@
         } // end for
 
         if(counter==0){
-          window.alert("查無資料!");
+          // window.alert("查無資料!");
           // document.getElementById("goback").innerHTML = `返回訂票頁面`;
         }
 
