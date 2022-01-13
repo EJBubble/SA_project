@@ -21,24 +21,24 @@ public class Book {
 	
 	private String endingStation;
 	
-	private Time departureTime;
+	private String departureTime;
 	
-	private Time arrivalTime;
+	private String arrivalTime;
 	
 	private int amount;
 	
 	private int totalPrice;
 	
-	private Date trainDate;
+	private String trainDate;
 	
 	private String trainType;
 	
 	private Timestamp created;
 
-	
+	//Post
 	public Book(int mID, int trainNO, String dStation, String aStation, 
-			String sStation, String eStation, Time dTime, Time aTime, 
-			int amount, int totalPrice, Date trainDate, 
+			String sStation, String eStation, String dTime, String aTime, 
+			int amount, int totalPrice, String trainDate, 
 			String trainType){
 		
 		this.trainNO = trainNO;
@@ -55,9 +55,10 @@ public class Book {
 		this.trainType = trainType;
 	}
 	
+	//Get
 	public Book(int id, int mID, int trainNO, String dStation, String aStation, 
-			String sStation, String eStation, Time dTime, Time aTime, 
-			int amount, int totalPrice, Date trainDate, 
+			String sStation, String eStation, String dTime, String aTime, 
+			int amount, int totalPrice, String trainDate, 
 			String trainType){
 		
 		this.id = id;
@@ -105,11 +106,11 @@ public class Book {
 		return this.endingStation;
 	}
 	
-	public Time getDepartureTime() {
+	public String getDepartureTime() {
 		return this.departureTime;
 	}
 	
-	public Time getArrivalTime() {
+	public String getArrivalTime() {
 		return this.arrivalTime;
 	}
 	
@@ -121,7 +122,7 @@ public class Book {
 		return this.totalPrice;
 	}
 	
-	public Date getTrainDate(){
+	public String getTrainDate(){
 		return this.trainDate;
 	}
 	
