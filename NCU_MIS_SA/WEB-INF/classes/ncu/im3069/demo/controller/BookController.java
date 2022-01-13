@@ -31,8 +31,8 @@ public class BookController extends HttpServlet {
 		
 		JsonReader jsr = new JsonReader(request);
         /** 若直接透過前端AJAX之data以key=value之字串方式進行傳遞參數，可以直接由此方法取回資料 */
-        String id = jsr.getParameter("id");
-        
+        //String id = jsr.getParameter("id");
+        String id = "1";
         JSONObject query = bh.getByID(id);
         
         /** 新建一個JSONObject用於將回傳之資料進行封裝 */
