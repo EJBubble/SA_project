@@ -54,7 +54,7 @@
               <span class="text-success">你的訂購單</span>
               <span class="badge bg-success rounded-pill">3</span>
             </h4>
-            <ul class="list-group mb-3">
+            <ul class="list-group mb-3" id="cart">
               <li class="list-group-item d-flex justify-content-between lh-sm">
                 <div>
                   <h6 class="my-0">車票一</h6>
@@ -188,15 +188,28 @@
         </div>
       </main>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
+      <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2017–2021 Company Name</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Privacy</a></li>
           <li class="list-inline-item"><a href="#">Terms</a></li>
           <li class="list-inline-item"><a href="#">Support</a></li>
         </ul>
-      </footer>
+      </footer> -->
     </div>
+    <script>
+      let count = 0;
+      document.getElementById("cart").innerHTML = `
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">車票${count}</h6>
+                <small class="text-muted">時程</small>
+                <small>123</small>
+              </div>
+              <span class="text-muted">$400</span>
+            </li>
+        `;
+    </script>
 
     <script src="./assetsB/dist/js/bootstrap.bundle.min.js"></script>
 
