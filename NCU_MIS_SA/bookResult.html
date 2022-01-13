@@ -377,8 +377,8 @@
           }
           // 對號
           if(trainType === "2"){
-            // console.log("iiii", TrainTypeName[j].includes(trains))
-            if(trains.includes(TrainTypeName[j])){
+            // console.log(trains)
+            if(trains.includes(TrainTypeName[j]) || TrainTypeName[j].includes("自強")){
               if(TrainTypeName[j].includes("自強") || TrainTypeName[j].includes("普悠瑪") || TrainTypeName[j].includes("太魯閣") || TrainTypeName[j].includes("莒光") || TrainTypeName[j].includes("復興")){
                 if (
                   originStopTime[j] >= startTime &&
