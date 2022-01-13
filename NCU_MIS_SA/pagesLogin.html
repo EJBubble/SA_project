@@ -186,7 +186,7 @@
                         </div>
                       </div>
                       <div class="col-12">
-                        <button class="btn btn-success w-100" type="submit">
+                        <button class="btn btn-success w-100" type="submit" id="submit">
                           <!-- Login -->
                           登入
                         </button>
@@ -250,14 +250,30 @@
                         else {
                             // 將資料組成JSON格式
                             var data_object = {
-                                "email": email,
-                                "password": password,
+                                'email': email,
+                                'password': password
                             };
 
                             // 將JSON格式轉換成字串
                             var data_string = JSON.stringify(data_object);
 
-                            getMemberData();
+                            $.ajax({
+                                type: "POST",
+                                url: "api/login.do",
+                                data: data_string,
+                                crossDomain: true,
+                                cache: false,
+                                dataType: 'json',
+                                timeout: 5000,
+                                success: function (response) {
+                                  if (response.status == 200) {
+                                    alert("取得成功");
+                                  }
+                                },
+                                error: function () {
+                                  alert("無法連線到伺服器！");
+                                }
+                              });
                             // 發出POST的AJAX請求
                             // $.ajax({
                             //         type: "GET",
@@ -285,7 +301,7 @@
                     function getMemberData() {
                       $.ajax({
                         type: "GET",
-                        url: "api/login.do",
+                        url: "/api/login.do",
                         data: data_string,
                         crossDomain: true,
                         cache: false,

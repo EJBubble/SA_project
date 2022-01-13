@@ -12,3 +12,6 @@
 /TrainController.class
 /TrainHelper.class
 /TrainSelect.class
+/Booking.class
+/BookingHelper.class
+/BookHelper.class

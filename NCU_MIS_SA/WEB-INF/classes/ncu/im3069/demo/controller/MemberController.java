@@ -43,6 +43,7 @@ public class MemberController extends HttpServlet {
         JsonReader jsr = new JsonReader(request);
         JSONObject jso = jsr.getObject();
         
+        System.out.print("hello\n");
         /** 取出經解析到JSONObject之Request參數 */
         String email = jso.getString("email");
         String password = jso.getString("password");
