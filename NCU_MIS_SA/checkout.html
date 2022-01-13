@@ -9,7 +9,7 @@
       content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
     />
     <meta name="generator" content="Hugo 0.88.1" />
-    <title>Checkout example · Bootstrap v5.1</title>
+    <title>EZ訂火車</title>
 
     <link
       rel="canonical"
@@ -55,8 +55,11 @@
         <div class="row g-5">
           <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-success">你的訂購單</span>
-              <span class="badge bg-success rounded-pill">3</span>
+              <span class="text-success">車票總計</span>
+              <span
+                class="badge bg-success rounded-pill"
+                id="ticketCount"
+              ></span>
             </h4>
             <ul class="list-group mb-3" id="tickets">
               <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -185,7 +188,7 @@
               <hr class="my-4" />
 
               <button class="w-100 btn btn-success btn-lg" type="submit">
-                繼續結帳
+                結帳
               </button>
             </form>
           </div>
@@ -203,39 +206,82 @@
     </div>
 
     <script>
-      TrainTypeName = new URL(location.href).searchParams.get("TrainTypeName");
+      let TrainTypeName = new URL(location.href).searchParams.get(
+        "TrainTypeName"
+      );
       console.log("TrainTypeName", TrainTypeName);
-      TrainNo = new URL(location.href).searchParams.get("TrainNo");
+      let TrainNo = new URL(location.href).searchParams.get("TrainNo");
       console.log("TrainNo", TrainNo);
-      startingStation = new URL(location.href).searchParams.get(
+      let startingStation = new URL(location.href).searchParams.get(
         "startingStation"
       );
       console.log("startingStation", startingStation);
-      endingStationName = new URL(location.href).searchParams.get(
+      let endingStationName = new URL(location.href).searchParams.get(
         "endingStationName"
       );
       console.log("endingStationName", endingStationName);
-      originStopTime = new URL(location.href).searchParams.get(
+      let originStopTime = new URL(location.href).searchParams.get(
         "originStopTime"
       );
       console.log("originStopTime", originStopTime);
-      destinationStopTime = new URL(location.href).searchParams.get(
+      let destinationStopTime = new URL(location.href).searchParams.get(
         "destinationStopTime"
       );
       console.log("destinationStopTime", destinationStopTime);
-      fares = new URL(location.href).searchParams.get("fares");
+      let fares = new URL(location.href).searchParams.get("fares");
       console.log("fares", fares);
+      let date = new URL(location.href).searchParams.get("date");
+      console.log("date", date);
+      let departureStation = new URL(location.href).searchParams.get(
+        "departureStation"
+      );
+      console.log("departureStation", departureStation);
+      let arrivalStation = new URL(location.href).searchParams.get(
+        "arrivalStation"
+      );
+      console.log("arrivalStation", arrivalStation);
+      let ticketAmount = new URL(location.href).searchParams.get(
+        "ticketAmount"
+      );
+      console.log("ticketAmount", ticketAmount);
+
+      let ticketInfo = [
+        {
+          TrainTypeName: TrainTypeName,
+          TrainNo: TrainNo,
+          startingStation: startingStation,
+          endingStationName: endingStationName,
+          originStopTime: originStopTime,
+          destinationStopTime: destinationStopTime,
+          fares: fares,
+          date: date,
+          departureStation: departureStation,
+          arrivalStation: arrivalStation,
+        },
+      ];
+      for (let i = 0; i < parseInt(ticketAmount) - 1; i++) {
+        ticketInfo = ticketInfo.concat(ticketInfo[0]);
+      }
+      console.log("ticketInfo", ticketInfo);
 
       document.getElementById("tickets").innerHTML = `
-              <li class="list-group-item d-flex justify-content-between lh-sm">
-                <div>
-                  <h6 class="my-0">車票一</h6>
-                  <small class="text-muted">時程</small>
-                </div>
-                <span class="text-muted">$12</span>
-              </li>
-      `;
-
+        ${ticketInfo.map(
+          (data) => `
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">車票</h6>
+                      <small class="text-muted">時程</small></br>
+                      <small>日期 : ${data.date}</small></br>
+                      <small>${data.TrainTypeName} ${data.TrainNo}</small></br>
+                      <small>${data.departureStation}→${data.arrivalStation}</small></br>
+                      <small>出發時間:${data.originStopTime}→ 抵達時間:${data.destinationStopTime}</small>
+                    </div>
+                    <span class="text-muted">$${data.fares}</span>
+                  </li>
+                  `
+        )}
+        `;
+      document.getElementById("ticketCount").innerHTML = `${ticketAmount}`;
       // var [client_cart_obj, client_cart_amount] = getCartDataFromClient();
 
       // if (client_cart_obj.length == 0) {

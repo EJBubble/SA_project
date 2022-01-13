@@ -271,6 +271,8 @@
         date = new URL(location.href).searchParams.get("date");
         startTime = new URL(location.href).searchParams.get("start-time");
         endTime = new URL(location.href).searchParams.get("end-time");
+        ticketAmount = new URL(location.href).searchParams.get("ticketAmount");
+        console.log("ticketAmount", ticketAmount);
         // console.log("startTime", startTime);
         // trainType = new URL(location.href).searchParams.get("train"); // 對號非對號
         let trainType = "2" // 對號
@@ -362,6 +364,7 @@
                                 <input type="hidden" name="date" value="${date}"/>
                                 <input type="hidden" name="arrivalStation" value="${endStationName}"/>
                                 <input type="hidden" name="departureStation" value="${startStaionName}"/>
+                                <input type="hidden" name="ticketAmount" value="${ticketAmount}"/>
                                 <button type="submit" class="bi bi-link-45deg" style="border:none; border-radius:5px">
                                 </button>
                               </form>
@@ -410,6 +413,7 @@
                                     <input type="hidden" name="date" value="${date}"/>
                                     <input type="hidden" name="arrivalStation" value="${endStationName}"/>
                                     <input type="hidden" name="departureStation" value="${startStaionName}"/>
+                                    <input type="hidden" name="ticketAmount" value="${ticketAmount}"/>
                                     <button type="submit" class="bi bi-link-45deg" style="border:none; border-radius:5px">
                                     </button>
                                   </form>
