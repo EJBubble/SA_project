@@ -173,8 +173,8 @@ public class MemberController extends HttpServlet {
         
         /** 取出經解析到JSONObject之Request參數 */
         int id = jso.getInt("id");
-        String email = jso.getString("email");
         String password = jso.getString("password");
+        String email = jso.getString("email");
         String name = jso.getString("name");
         String phone = jso.getString("phone");
 

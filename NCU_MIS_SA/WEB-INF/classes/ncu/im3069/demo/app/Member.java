@@ -68,6 +68,7 @@ public class Member {
         this.email = email;
         this.password = password;
         this.name = name;
+        this.phone = phone;
         /** 取回原有資料庫內該名會員之更新時間分鐘數與組別 */
         
     }
