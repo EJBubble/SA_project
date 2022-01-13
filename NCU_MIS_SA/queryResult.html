@@ -259,7 +259,9 @@
         endStationID = new URL(location.href).searchParams.get("endStation");
         startTime = new URL(location.href).searchParams.get("start-time");
         endTime = new URL(location.href).searchParams.get("end-time");
-        console.log("startTime", startTime);
+        // console.log("startTime", startTime);
+        trainType = new URL(location.href).searchParams.get("train"); // 對號非對號
+        console.log("trainType", trainType);
         // console.log("startStationID", startStationID);
         // console.log("endStation", endStationID);
         // console.log("date", date);
@@ -307,18 +309,54 @@
         }
         var mytable = "<table>";
         for (let j = 0; j < TrainNo.length; j++) {
-          if (
-            originStopTime[j] >= startTime &&
-            destinationStopTime[j] <= endTime
-          ) {
-
-            mytable += `<tr><td>  ${TrainTypeName[j]}  ${TrainNo[j]} (${startingStation[j]} → ${endingStationName[j]}) </td>`;
-            mytable += "<td>" + originStopTime[j] + "</td>";
-            mytable += "<td>" + destinationStopTime[j] + "</td>";
-            mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
-            mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td></tr>";
+          // 全部
+          if(trainType === "1"){
+            if (
+              originStopTime[j] >= startTime &&
+              destinationStopTime[j] <= endTime
+            ) {
+  
+              mytable += `<tr><td>  ${TrainTypeName[j]}  ${TrainNo[j]} (${startingStation[j]} → ${endingStationName[j]}) </td>`;
+              mytable += "<td>" + originStopTime[j] + "</td>";
+              mytable += "<td>" + destinationStopTime[j] + "</td>";
+              mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
+              mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td></tr>";
+            }
           }
-        }
+          // 對號
+          if(trainType === "2"){
+            if(TrainTypeName[j].includes("區間")){
+              continue;
+            }else{
+              if (
+                originStopTime[j] >= startTime &&
+                destinationStopTime[j] <= endTime
+              ) {
+                mytable += `<tr><td>  ${TrainTypeName[j]}  ${TrainNo[j]} (${startingStation[j]} → ${endingStationName[j]}) </td>`;
+                mytable += "<td>" + originStopTime[j] + "</td>";
+                mytable += "<td>" + destinationStopTime[j] + "</td>";
+                mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
+                mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td></tr>";
+              }
+            }
+          } // end if
+          // 非對號
+          if(trainType === "3"){
+            if(TrainTypeName[j].includes("區間")) {
+              if (
+                originStopTime[j] >= startTime &&
+                destinationStopTime[j] <= endTime
+              ) {
+                mytable += `<tr><td>  ${TrainTypeName[j]}  ${TrainNo[j]} (${startingStation[j]} → ${endingStationName[j]}) </td>`;
+                mytable += "<td>" + originStopTime[j] + "</td>";
+                mytable += "<td>" + destinationStopTime[j] + "</td>";
+                mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
+                mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td></tr>";
+              }
+            }
+          }
+          
+        } // end for
 
         mytable += "</table>";
         document.getElementById("results").innerHTML = mytable;
@@ -334,6 +372,7 @@
       fetchResult()
         .then((res) => console.log("success"))
         .catch((err) => console.log("error", err));
+
 
       async function fetchPrice(startStationID, endStationID){
         const response = await fetch(

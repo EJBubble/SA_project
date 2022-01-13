@@ -396,15 +396,15 @@
         </div>
         <div class="trainType">
           <label class="btn btn-lg btn-linear btn-outline-success active" >
-            <input type="radio" name="train" autocomplete="off" checked="true" required/>
+            <input type="radio" name="train" data-param="train" value=1 class="unitfiltercontrol" autocomplete="off" checked="true" required/>
             全部
           </label>
           <label class="btn btn-lg btn-linear btn-outline-success active" >
-            <input type="radio" name="train" autocomplete="off"  />
+            <input type="radio" name="train" data-param="train" value=2 class="unitfiltercontrol" autocomplete="off"  />
             對號
           </label>
           <label class="btn btn-lg btn-linear btn-outline-success active" >
-            <input type="radio" name="train" autocomplete="off" />
+            <input type="radio" name="train" data-param="train" value=3 class="unitfiltercontrol" autocomplete="off" />
             非對號
           </label>
         </div>
@@ -527,7 +527,7 @@
           endTime = "23:59"
         }else if(today.getMinutes()<30){
           if(today.getHours()+8>10){
-            endTime = `0${today.getHours()+8}:00`;;
+            endTime = `${today.getHours()+8}:00`;;
           }else{
             endTime = `0${today.getHours()+8}:00`;
             console.log(endTime)
@@ -641,6 +641,22 @@
       //     });
       //   });
 
+      let values = {};
+
+      $('.unitfiltercontrol').change(function(e){
+        let data = $(this).data('param');
+        let value = this.value;
+        values[data] = value;
+        let params = [];
+        
+        let keys = Object.keys(values);
+        
+        for(inc = 0; inc < keys.length ; inc ++) {
+          let key = keys[inc];
+          params.push(key+'='+encodeURIComponent(values[key]))
+        }
+      });
+      
       
       async function fetchResult() {
         new URLSearchParams(window.location.search).forEach((value, name) => {
