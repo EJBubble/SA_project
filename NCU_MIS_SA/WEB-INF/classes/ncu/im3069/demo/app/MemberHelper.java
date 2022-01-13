@@ -410,7 +410,7 @@ public class MemberHelper {
             
             /** 執行新增之SQL指令並記錄影響之行數 */
             row = pres.executeUpdate();
-            
+   
             /** 紀錄真實執行的SQL指令，並印出 **/
             exexcute_sql = pres.toString();
             System.out.println(exexcute_sql);
@@ -569,14 +569,15 @@ public class MemberHelper {
             /** 將參數回填至SQL指令當中 */
             pres = conn.prepareStatement(sql);
             pres.setString(1, mail);
-            pres.setNString(2, Password);
+            pres.setString(2, Password);
             /** 執行查詢之SQL指令並記錄其回傳之資料 */
             rs = pres.executeQuery();
 
             /** 讓指標移往最後一列，取得目前有幾行在資料庫內 */
             rs.next();
             row = rs.getInt("count(*)");
-            System.out.print(row);
+            System.out.printf("讀取: %d\n", row);
+            System.out.print("successful\n");
 
         } catch (SQLException e) {
             /** 印出JDBC SQL指令錯誤 **/
@@ -634,6 +635,7 @@ public class MemberHelper {
                 
                 /** 將 ResultSet 之資料取出 */
                 int member_id = rs.getInt("id");
+                System.out.printf("id: %d\n", member_id);
                 String name = rs.getString("member_name");
                 String password = rs.getString("member_password");
                 String email = rs.getString("member_email");
