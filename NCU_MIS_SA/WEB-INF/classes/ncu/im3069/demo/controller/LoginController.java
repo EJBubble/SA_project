@@ -9,8 +9,6 @@ import ncu.im3069.demo.app.Member;
 import ncu.im3069.demo.app.MemberHelper;
 import ncu.im3069.tools.JsonReader;
 
-*/
-@WebServlet("/api/login.do")
 public class LoginController extends HttpServlet {
     
     /** The Constant serialVersionUID. */
