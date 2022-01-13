@@ -186,7 +186,7 @@
                         </div>
                       </div>
                       <div class="col-12">
-                        <button class="btn btn-success w-100" type="submit" id="submit">
+                        <button class="btn btn-success w-100" type="button" id="submit">
                           <!-- Login -->
                           登入
                         </button>
@@ -223,7 +223,7 @@
       ><i class="bi bi-arrow-up-short"></i
     ></a>
     
-    <script>
+    <script language="javascript" type="text/javascript">
       $(document).ready(function() {
                     // 處理表單點擊事件
                     var $form = $('#submit');
@@ -270,37 +270,20 @@
                                     alert("取得成功");
                                     var id = response['response']['data'][0]['id'];
                                     alert(id);
+                        
+                                    document.location.href = "indexA.html?id="+id;
+                                    
                                   }
                                 },
                                 error: function () {
                                   alert("無法連線到伺服器！");
                                 }
                               });
-                            // 發出POST的AJAX請求
-                            // $.ajax({
-                            //         type: "GET",
-                            //         url: "api/samember.do",
-                            //         data: data_string,
-                            //         crossDomain: true,
-                            //         cache: false,
-                            //         dataType: 'json',
-                            //         timeout: 5000,
-                            //         success: function (response) {
-                            //             $('#flashMessage').html(response.message);
-                            //             $('#flashMessage').show();
-                            //             if(response.status == 200){
-                            //                 //updateSQLTable(response.response);
-                            //                 alert("登入成功");
-                            //             }
-                            //         },
-                            //         error: function () {
-                            //             alert("無法連線到伺服器！");
-                            //         }
-                            // });
+                              return false;
+                          
                         }
                     }
                     
-                  
 
                     function getMemberData() {
                       $.ajax({
