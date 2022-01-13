@@ -41,6 +41,8 @@
     <link href="assetsA/css/style.css" rel="stylesheet" />
     <link href="assets/css/styleA.css" rel="stylesheet" />
 
+    <script src="statics/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+
     <style>
 
       .nav-tabs-bordered .nav-link.active {
@@ -90,6 +92,7 @@
       </div>
     </header><!-- End Header -->
 
+    
     <main>
       <div class="container">
         <section>
@@ -119,22 +122,19 @@
                           </li>
           
                           <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-account">更改會員帳號</button>
-                          </li>
-          
-                          <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-E-mail">更改會員E-mail</button>
-                          </li>
-          
-                          <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-name">更改會員名稱</button>
                           </li>
-          
+
+                          <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-E-mail">更改會員電話</button>
+                          </li>
+
                           <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">更改會員密碼</button>
                           </li>
           
                         </ul>
+
                         <div class="tab-content pt-2">
           
                           <div class="tab-pane fade show active profile-overview" id="profile-overview">       
@@ -142,24 +142,21 @@
                             <h5 class="card-title">會員資料</h5>
           
                             <div class="row">
-                              <div class="col-lg-3 col-md-4 label ">會員帳號</div>
-                              <div class="col-lg-9 col-md-8">a1234567879</div>
-                            </div>
-          
-                            <div class="row">
-                              <div class="col-lg-3 col-md-4 label">E-mail</div>
-                              <div class="col-lg-9 col-md-8">b987654321@gmail.com</div>
+                              <div class="col-lg-3 col-md-4 label ">電子郵件</div>
+                              <input name="email" type="email" class="form-control" id="newemail" required="required" disabled/>
                             </div>
           
                             <div class="row">
                               <div class="col-lg-3 col-md-4 label">會員名稱</div>
-                              <div class="col-lg-9 col-md-8">abc</div>
+                              <div class="col-lg-9 col-md-8 " id="disable_name"></div>
                             </div>
           
                             <div class="row">
-                              <div class="col-lg-3 col-md-4 label">密碼</div>
-                              <div class="col-lg-9 col-md-8">123456789</div>
+                              <div class="col-lg-3 col-md-4 label">電話</div>
+                              <div class="col-lg-9 col-md-8" id="disable_phone"></div>
                             </div>
+          
+              
           
                           </div>  
 
@@ -189,68 +186,29 @@
                               </div>
           
                               <div class="text-center">
-                                <button type="submit" class="btn btn-success">更改</button>
+                                <input type="button" value="更新" class="btn btn-success" id="submitpassword">
                               </div>
                             </form><!-- End Change Password Form -->          
                           </div>
 
-                          <div class="tab-pane fade pt-3" id="profile-change-account">
-                            <!-- change-account Form -->
-                            <form>
-          
-                              <div class="row mb-3">
-                                <label for="currentAccount" class="col-md-4 col-lg-3 col-form-label">原帳號</label>
-                                <div class="col-md-8 col-lg-9">
-                                  <input name="account" type="account" class="form-control" id="currentAccount" required/>
-                                  <div class="invalid-feedback">
-                                    請輸入你的原帳號!
-                                   </div>
-                                </div>
-                              </div>
-          
-                              <div class="row mb-3">
-                                <label for="newAccount" class="col-md-4 col-lg-3 col-form-label">新帳號</label>
-                                <div class="col-md-8 col-lg-9">
-                                  <input name="newaccount" type="account" class="form-control" id="newAccount" required/>
-                                  <div class="invalid-feedback">
-                                    請輸入你的新帳號!
-                                   </div>
-                                </div>
-                              </div>
-                             
-                              <div class="text-center">
-                                <button type="submit" class="btn btn-success">更改</button>
-                              </div>
-                            </form><!-- End change-account Form -->
-          
-                          </div>                                  
+                                                        
           
                           <div class="tab-pane fade pt-3" id="profile-change-E-mail" >
                             <!-- change-E-mail Form -->
                             <form>
           
                               <div class="row mb-3">
-                                <label for="currentE-mail" class="col-md-4 col-lg-3 col-form-label">原E-mail</label>
+                                <label for="newphone" class="col-md-4 col-lg-3 col-form-label">新電話</label>
                                 <div class="col-md-8 col-lg-9">
-                                  <input name="E-mail" type="E-mail" class="form-control" id="currentE-mail" required/>
+                                  <input name="phone" type="phone" class="form-control" id="newphone" required/>
                                   <div class="invalid-feedback">
-                                    請輸入你的原E-mail!
-                                   </div>
-                                </div>
-                              </div>
-          
-                              <div class="row mb-3">
-                                <label for="newE-mail" class="col-md-4 col-lg-3 col-form-label">新E-mail</label>
-                                <div class="col-md-8 col-lg-9">
-                                  <input name="newE-mail" type="E-mail" class="form-control" id="newE-mail" required/>
-                                  <div class="invalid-feedback">
-                                    請輸入你的新E-mail!
+                                    請輸入你的新電話!
                                    </div>
                                 </div>
                               </div>
                              
                               <div class="text-center">
-                                <button type="submit" class="btn btn-success">更改</button>
+                                <input type="button" value="更新" class="btn btn-success" id="submitphone">
                               </div>
                             </form><!-- End change-E-mail Form -->
           
@@ -259,16 +217,7 @@
                           <div class="tab-pane fade pt-3" id="profile-change-name">
                             <!-- change-name Form -->
                             <form>
-          
-                              <div class="row mb-3">
-                                <label for="currentName" class="col-md-4 col-lg-3 col-form-label">原名稱</label>
-                                <div class="col-md-8 col-lg-9" novalidate>
-                                  <input name="name" type="text" class="form-control" id="currentName" required/>                             
-                                  <div class="invalid-feedback">
-                                   請輸入你的原名稱!
-                                  </div>
-                                </div>
-                              </div>
+      
           
                               <div class="row mb-3">
                                 <label for="newName" class="col-md-4 col-lg-3 col-form-label">新名稱</label>
@@ -281,7 +230,7 @@
                               </div>
                              
                               <div class="text-center">
-                                <button type="submit" class="btn btn-success">更改</button>
+                                <input type="button" value="更新" class="btn btn-success" id="submitname">
                               </div>
                             </form><!-- End change-name Form -->
                   </div>
@@ -292,8 +241,128 @@
         </section>
       </div>
     </main>
+    
     <!-- End #main -->
+    <script type="text/javascript">
+      // 取得網址參數
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      //var id = url.searchParams.get("id");
+      var id = 1;
+      var sql_num = 0;
 
+      function updateMember(id) {
+          var name = $('#newName').val();
+          var phone = $('#newphone').val();
+          var email = $('#newemail').val();
+          var password = $('#currentPassword').val();
+
+          var password_rule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+          if(!password_rule.test(password)) {
+              alert("密碼格式不符，長度至少8，且至少包含一個數字和英文字母！");
+          }
+          else {
+              // 將資料組成JSON格式
+              var data_object = {
+                  "id": id,
+                  "name": name,
+                  "email": email,
+                  "phone": phone,
+                  "password": password
+              };
+
+              // 將JSON格式轉換成字串
+              var data_string = JSON.stringify(data_object);
+
+              // 發出POST的PUT請求
+              $.ajax({
+                      type: "PUT",
+                      url: "api/samember.do",
+                      data: data_string,
+                      crossDomain: true,
+                      cache: false,
+                      dataType: 'json',
+                      timeout: 5000,
+                      success: function (response) {
+                          $('#flashMessage').html(response.message);
+                          $('#flashMessage').show();
+                          if(response.status == 200){
+                              //updateSQLTable(response.response);
+                              getMember();
+                          }
+                      },
+                      error: function () {
+                          alert("無法連線到伺服器！");
+                      }
+              });
+          }
+      }
+
+      // 更新SQL指令歷史表格
+      function updateSQLTable(data) {
+          var time = (data.time / 1000000).toFixed(2);
+          var table_html = "";
+          
+          sql_num += 1
+
+          table_html += '<tr>';
+          table_html += '<td>' + sql_num + '</td>';
+          table_html += '<td>' + data.sql + '</td>';
+          table_html += '<td style="text-align: right">' + '0' + '</td>';
+          table_html += '<td style="text-align: right">' + data.row + '</td>';
+          table_html += '<td style="text-align: right">' + data.row + '</td>';
+          table_html += '<td style="text-align: right">' + time + '</td>';
+          table_html += '</tr>';
+          $("#sql_log > tbody").append(table_html);
+          $("#sql_summary").html("(default) " + data.row + " queries took " + time + " ms");
+      }
+
+      function getMember() {
+          $.ajax({
+              type: "GET",
+              url: "api/samember.do",
+              crossDomain: true,
+              data: "id=" + id,
+              cache: false,
+              dataType: 'json',
+              timeout: 5000,
+              success: function (response) {
+                  if(response.status == 200){
+                    //updateSQLTable(response.response);
+                    document.getElementById('newName').value = response['response']['data'][0]['name'];
+                    document.getElementById('disable_name').innerHTML = response['response']['data'][0]['name'];
+                    document.getElementById('newemail').value = response['response']['data'][0]['email'];
+                    document.getElementById('currentPassword').value = response['response']['data'][0]['password'];
+                    document.getElementById('newphone').value = response['response']['data'][0]['phone'];
+                    document.getElementById('disable_phone').innerHTML = response['response']['data'][0]['phone'];
+                  }
+                  console.log(response);
+              },
+              error: function () {
+                  alert("無法連線到伺服器！");
+              }
+          });
+      }
+
+      $('#submitphone').click(function() {
+          updateMember(id);
+      });
+
+      $('#submitname').click(function() {
+          updateMember(id);
+      });
+
+      $('#submitpassword').click(function() {
+          updateMember(id);
+      });
+
+      $(document).ready(function() {
+        // 發出GET的AJAX請求取得原本該會員的資料
+          $("#sql_log > tbody").empty();
+          getMember();
+      });
+    </script>
     <!-- Vendor JS Files -->
     <script src="assetsA/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assetsA/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
