@@ -570,7 +570,7 @@
             <select class="col startStation " id="select-startStation" name="startStation" required="required">
                 <option value="" disabled selected>車站</option>
                 ${stationName.map((res, index) => `
-                    <option id ="${stationsID[index]}" value="${stationsID[index]}">${res}</option>
+                    <option id ="${stationsID[index]}" value="${stationsID[index]}${res}">${res}</option>
                 `).join('')}
             </select>
         `
@@ -578,7 +578,7 @@
             <select class="col endStation " id="select-endStation" name="endStation" required="required">
                 <option value="" disabled selected>車站</option>
                 ${stationName.map((res, index) => `
-                    <option id="${stationsID[index]}" value="${stationsID[index]}">${res}</option>
+                    <option id="${stationsID[index]}" value="${stationsID[index]}${res}">${res}</option>
                 `).join('')}
             </select>
         `
