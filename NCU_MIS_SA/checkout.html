@@ -1,19 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.88.1" />
     <title>Checkout example · Bootstrap v5.1</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
-
-    
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.1/examples/checkout/"
+    />
 
     <!-- Bootstrap core CSS -->
-<link href="./assetsB/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assetsB/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <style>
       .bd-placeholder-img {
@@ -29,134 +33,186 @@
           font-size: 3.5rem;
         }
       }
+
+      .form-check-input:checked {
+        background-color: #0e9c26 !important;
+        border-color: #0e9c26 !important;
+      }
     </style>
 
-    
     <!-- Custom styles for this template -->
-    <link href="./assetsB/dist/css/form-validation.css" rel="stylesheet">
+    <link href="./assetsB/dist/css/form-validation.css" rel="stylesheet" />
   </head>
   <body class="bg-light">
-    
-<div class="container">
-  <main>
-    <div class="py-5 text-center">
-      
-    </div>
+    <div class="container">
+      <main>
+        <div class="py-5 text-center"></div>
 
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">你的訂購單</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">車票一</h6>
-              <small class="text-muted">時程</small>
-            </div>
-            <span class="text-muted">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">車票二</h6>
-              <small class="text-muted">時程</small>
-            </div>
-            <span class="text-muted">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">車票三</h6>
-              <small class="text-muted">時程</small>
-            </div>
-            <span class="text-muted">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (NT)</span>
-            <strong>$25</strong>
-          </li>
+        <div class="row g-5">
+          <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-success">你的訂購單</span>
+              <span class="badge bg-success rounded-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3" id="cart">
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0">車票一</h6>
+                  <small class="text-muted">時程</small>
+                </div>
+                <span class="text-muted">$12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0">車票二</h6>
+                  <small class="text-muted">時程</small>
+                </div>
+                <span class="text-muted">$8</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0">車票三</h6>
+                  <small class="text-muted">時程</small>
+                </div>
+                <span class="text-muted">$5</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total (NT)</span>
+                <strong>$25</strong>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">付款頁面</h4>
+            <form class="needs-validation" novalidate>
+              <hr class="my-4" />
+
+              <h4 class="mb-3">付款</h4>
+
+              <div class="my-3">
+                <div class="form-check">
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    checked
+                    required
+                  />
+                  <label class="form-check-label" for="credit">信用卡</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    id="debit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="debit">簽帳金融卡</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    id="paypal"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="paypal">PayPal</label>
+                </div>
+              </div>
+
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">使用此卡的姓名</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-name"
+                    placeholder=""
+                    required
+                  />
+                  <small class="text-muted"
+                    >Full name as displayed on card</small
+                  >
+                  <div class="invalid-feedback">必須填寫使用此卡的姓名</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label">信用卡卡號</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-number"
+                    placeholder=""
+                    required
+                  />
+                  <div class="invalid-feedback">必須填寫信用卡卡號</div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label"
+                    >信用卡到期日</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-expiration"
+                    placeholder=""
+                    required
+                  />
+                  <div class="invalid-feedback">必須填寫性用卡到期日</div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-cvv"
+                    placeholder=""
+                    required
+                  />
+                  <div class="invalid-feedback">必須填寫信用卡安全代碼</div>
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <button class="w-100 btn btn-success btn-lg" type="submit">
+                繼續結帳
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017–2021 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
         </ul>
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">付款頁面</h4>
-        <form class="needs-validation" novalidate>
-          
-
-          <hr class="my-4">
-
-          <h4 class="mb-3">付款</h4>
-
-          <div class="my-3">
-            <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-              <label class="form-check-label" for="credit">信用卡</label>
-            </div>
-            <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="debit">簽帳金融卡</label>
-            </div>
-            <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="paypal">PayPal</label>
-            </div>
-          </div>
-
-          <div class="row gy-3">
-            <div class="col-md-6">
-              <label for="cc-name" class="form-label">使用此卡的姓名</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback">
-                必須填寫使用此卡的姓名
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <label for="cc-number" class="form-label">信用卡卡號</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
-              <div class="invalid-feedback">
-                必須填寫信用卡卡號
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-expiration" class="form-label">信用卡到期日</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-              <div class="invalid-feedback">
-                必須填寫性用卡到期日
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                必須填寫信用卡安全代碼
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">繼續結帳</button>
-        </form>
-      </div>
+      </footer> -->
     </div>
-  </main>
-
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2017–2021 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-  </footer>
-</div>
-
+    <script>
+      let count = 0;
+      document.getElementById("cart").innerHTML = `
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">車票${count}</h6>
+                <small class="text-muted">時程</small>
+                <small>123</small>
+              </div>
+              <span class="text-muted">$400</span>
+            </li>
+        `;
+    </script>
 
     <script src="./assetsB/dist/js/bootstrap.bundle.min.js"></script>
 
-      <script src="./assetsB/dist/js/form-validation.js"></script>
+    <script src="./assetsB/dist/js/form-validation.js"></script>
   </body>
 </html>

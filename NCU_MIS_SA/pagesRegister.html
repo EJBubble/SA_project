@@ -88,7 +88,7 @@
 
     <main>
       <div class="container">
-        <div id="flashMessage" class="message" style="display: none;"></div>
+        <!-- <div id="flashMessage" class="message" style="display: none;"></div> -->
         <section
           class="
             section
@@ -177,7 +177,7 @@
                             >@</span
                           > -->
                           <input
-                            type="text"
+                            type="phone"
                             name="userphone"
                             class="form-control"
                             id="yourPhone"
@@ -325,6 +325,7 @@
                                         if(response.status == 200){
                                             //updateSQLTable(response.response);
                                             alert("註冊成功");
+                                            document.location.href = "indexA.html";
                                         }
                                     },
                                     error: function () {

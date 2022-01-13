@@ -48,6 +48,7 @@
       rel="stylesheet"
       href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     />
+    
 
     <!-- <link
       rel="stylesheet"
@@ -159,6 +160,7 @@
           <th>抵達時間</th>
           <th>行駛時間</th>
           <th>票價</th>
+          <th>訂票</th>
         </tr>
       </thead>
       <tbody id="results">
@@ -320,25 +322,71 @@
               mytable += "<td>" + originStopTime[j] + "</td>";
               mytable += "<td>" + destinationStopTime[j] + "</td>";
               mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
-              mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td></tr>";
+              mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td>";
+              if(TrainTypeName[j].includes("自強") || TrainTypeName[j].includes("普悠瑪") || TrainTypeName[j].includes("太魯閣") || TrainTypeName[j].includes("莒光") || TrainTypeName[j].includes("復興")) {
+                // 日期跟今天一樣，出發時間必須要大於現在時間才可以訂票。
+                if(date === getCurrentDate() && getCurrentTime() > originStopTime[j]){
+                  mytable +=`<td></td></tr>`
+                }else{
+                  mytable +=`<td>
+                              <form action="checkout.html" method="get">
+                                <input type="hidden" name="TrainTypeName" value="${TrainTypeName[j]}"/>
+                                <input type="hidden" name="TrainNo" value="${TrainNo[j]}"/>
+                                <input type="hidden" name="startingStation" value="${startingStation[j]}"/>
+                                <input type="hidden" name="endingStationName" value="${endingStationName[j]}"/>
+                                <input type="hidden" name="originStopTime" value="${originStopTime[j]}"/>
+                                <input type="hidden" name="destinationStopTime" value="${destinationStopTime[j]}"/>
+                                <input type="hidden" name="fares" value="${getPrice(TrainTypeName[j], fares)}"/>
+                                <button type="submit" class="bi bi-link-45deg" style="border:none; border-radius:5px">
+                                </button>
+                              </form>
+                            </td></tr>`
+                }
+              }else{
+                mytable +=`<td></td></tr>`
+              }
             }
           }
           // 對號
           if(trainType === "2"){
-            if(TrainTypeName[j].includes("區間")){
-              continue;
-            }else{
+            if(TrainTypeName[j].includes("自強") || TrainTypeName[j].includes("普悠瑪") || TrainTypeName[j].includes("太魯閣") || TrainTypeName[j].includes("莒光") || TrainTypeName[j].includes("復興")){
               if (
                 originStopTime[j] >= startTime &&
                 destinationStopTime[j] <= endTime
               ) {
-                mytable += `<tr><td>  ${TrainTypeName[j]}  ${TrainNo[j]} (${startingStation[j]} → ${endingStationName[j]}) </td>`;
-                mytable += "<td>" + originStopTime[j] + "</td>";
-                mytable += "<td>" + destinationStopTime[j] + "</td>";
-                mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
-                mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td></tr>";
+                // 日期跟今天一樣，出發時間必須要大於現在時間才可以訂票。
+                if(date === getCurrentDate() && getCurrentTime() < originStopTime[j]){
+                  mytable += `<tr><td>  ${TrainTypeName[j]}  ${TrainNo[j]} (${startingStation[j]} → ${endingStationName[j]}) </td>`;
+                  mytable += "<td>" + originStopTime[j] + "</td>";
+                  mytable += "<td>" + destinationStopTime[j] + "</td>";
+                  mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
+                  mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td>";
+                  mytable +=`<td>
+                                <form action="checkout.html" method="get">
+                                  <input type="hidden" name="TrainTypeName" value="${TrainTypeName[j]}"/>
+                                  <input type="hidden" name="TrainNo" value="${TrainNo[j]}"/>
+                                  <input type="hidden" name="startingStation" value="${startingStation[j]}"/>
+                                  <input type="hidden" name="endingStationName" value="${endingStationName[j]}"/>
+                                  <input type="hidden" name="originStopTime" value="${originStopTime[j]}"/>
+                                  <input type="hidden" name="destinationStopTime" value="${destinationStopTime[j]}"/>
+                                  <input type="hidden" name="fares" value="${getPrice(TrainTypeName[j], fares)}"/>
+                                  <button type="submit" class="bi bi-link-45deg" style="border:none; border-radius:5px">
+                                  </button>
+                                </form>
+                              </td></tr>`
+                } 
+                else{ 
+                  mytable += `<tr><td>  ${TrainTypeName[j]}  ${TrainNo[j]} (${startingStation[j]} → ${endingStationName[j]}) </td>`;
+                  mytable += "<td>" + originStopTime[j] + "</td>";
+                  mytable += "<td>" + destinationStopTime[j] + "</td>";
+                  mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
+                  mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td>";
+                  mytable +=`<td></td></tr>`
+                }
               }
             }
+              
+            
           } // end if
           // 非對號
           if(trainType === "3"){
@@ -351,7 +399,8 @@
                 mytable += "<td>" + originStopTime[j] + "</td>";
                 mytable += "<td>" + destinationStopTime[j] + "</td>";
                 mytable += "<td>" + ridingTime(originStopTime[j], destinationStopTime[j]) + "</td>";
-                mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td></tr>";
+                mytable += "<td>" + getPrice(TrainTypeName[j], fares) + "</td>";
+                mytable +=`<td></td></tr>`
               }
             }
           }
@@ -373,6 +422,38 @@
         .then((res) => console.log("success"))
         .catch((err) => console.log("error", err));
 
+
+      function getCurrentTime() {
+        var currentdate = new Date();
+        var dateTime = currentdate.getHours()+":"+ currentdate.getMinutes();
+        if(currentdate.getHours()<10){
+          hours = "0"+currentdate.getHours();
+        }else{
+          hours = currentdate.getHours();
+        }
+        if(currentdate.getMinutes()<10){
+          minutes = "0"+currentdate.getMinutes();
+        }else{
+          minutes = currentdate.getMinutes();
+        }
+        return hours+":"+minutes;
+      }
+      console.log("now", getCurrentTime());
+
+      Date.prototype.yyyymmdd = function() {
+        var mm = this.getMonth() + 1; // getMonth() is zero-based
+        var dd = this.getDate();
+
+        return [this.getFullYear(),
+            (mm>9 ? '' : '0') + mm,
+            (dd>9 ? '' : '0') + dd
+            ].join('-');
+		  };
+
+      function getCurrentDate() {
+        let currentDate = new Date().yyyymmdd();
+        return currentDate;
+      }
 
       async function fetchPrice(startStationID, endStationID){
         const response = await fetch(
