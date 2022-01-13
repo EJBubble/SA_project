@@ -299,7 +299,9 @@
                     });
 
                     function submit()   {
-                      var member_id = 1;
+                      var url_string = window.location.href;
+                      var url = new URL(url_string);
+                      var member_id = url.searchParams.get("id");
                       var trainNo = TrainNo;
                       var dStation = departureStation;
                       var aStation = arrivalStation;

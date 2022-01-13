@@ -68,6 +68,7 @@
   <script src="statics/js/jquery-3.4.1.min.js"></script>
   <script src="statics/js/jquery-confirm.js"></script>
   <script src="statics/js/big.min.js"></script>
+  <script src="statics/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -195,71 +196,8 @@
   var url = new URL(url_string);
   //var id = url.searchParams.get("id");
   var id = 1;
-  function getOrderData() {
-	  $.ajax({
-          type: "GET",
-          url: "api/book.do",
-          data: "id=" + id,
-          crossDomain: true,
-          cache: false,
-          dataType: 'json',
-          timeout: 5000,
-          success: function (response) {
-              if(response.status == 200){
-            	  updateHTML(response.response.data);
-              }
-          },
-          error: function () {
-              alert("無法連線到伺服器！");
-          }
-    });
-  }
-  
-  getOrderData();
-  
-  function updateHTML(data) {
-	  $("#order_id").html(data['order_info']['id']);
-	  $("#create").html(data['order_info']['create']);
-	  $("#modify").html(data['order_info']['modify']);
-	  $("#email").html(data['order_info']['email']);
-	  $("#phone").html(data['order_info']['phone']);
-	  $("#first_name").html(data['order_info']['first_name']);
-	  $("#last_name").html(data['order_info']['last_name']);
-	  $("#item").html(data.product_info.length);
-	  
-	  var total_price = Big(0.0);
-	  var quantity = 0;
-	  var inner_html = "";
-	  
-	  $.each(data.product_info, function (k, v) {
-		  quantity += v['quantity'];
-		  total_price = total_price.plus(v['subtotal']);
-		  inner_html += updateOrderProductTable(v);
-	  });
-	  
-	  $("#quantity").html(quantity);
-	  $("#total").html(total_price.toString());
-	  
-	  $("#table > tbody").empty();
-	  $("#panel").append(inner_html);
-
-  }
-  
-  function updateOrderProductTable(data) {
-	  var table_html = "";
-	  table_html += '<tr id="row_' + data.id + '">';
-    table_html += '<td class="align-middle text-center">' + data.product.id + '</td>';
-    table_html += '<td class="align-middle"><p class="text-break">' + data.product.name + '</p></td>';
-    table_html += '<td class="align-middle text-center"><span id="price_' + data.id + '">' + data.price + '</td>';
-    table_html += '<td class="align-middle text-center">' + data.quantity + '</td>';
-    table_html += '<td class="align-middle text-center"><strong><span id="subtotal_' + data.id + '">' + data.subtotal + '<strong></td>';
-    table_html += '</tr>';
-	  
-	  return table_html;
-	  
-  }
-  </script>
-
+ 
+</script>
   <script>
     // console.log("helllo");
     let memberId = new URL(location.href).searchParams.get("id");
