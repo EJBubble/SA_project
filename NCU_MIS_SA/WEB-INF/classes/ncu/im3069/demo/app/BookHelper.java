@@ -46,7 +46,7 @@ public class BookHelper {
             /** 取得資料庫之連線 */
             conn = DBMgr.getConnection();
             /** SQL指令 */
-            String sql = "INSERT INTO `saproject`.`book`(`member_id`, `train_NO`, `departure_station`, `arrival_station`, `starting_station`, `ending_station`, `departure_time`, `arrival_time`, `ticket_amount`, `ticket_price`, `train_date`, `train_type`, `created`)"
+            String sql = "INSERT INTO `saproject`.`book`(`memeber_id`, `train_NO`, `departure_station`, `arrival_station`, `starting_station`, `ending_station`, `departure_time`, `arrival_time`, `ticket_amount`, `ticket_price`, `train_date`, `train_type`, `created`)"
                     + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
             /** 取得所需之參數 */
@@ -56,11 +56,11 @@ public class BookHelper {
             String aStation = b.getArrivalStation();
             String sStation = b.getStartingStation();
             String eStation = b.getEndingStation();
-            Time dTime = b.getDepartureTime();
-            Time aTime = b.getArrivalTime();
+            String dTime = b.getDepartureTime();
+            String aTime = b.getArrivalTime();
             int amount = b.getAmount();
             int price = b.getTotalPrice();
-            Date date = b.getTrainDate();
+            String date = b.getTrainDate();
             String type = b.getTrainType();
             
             
@@ -72,11 +72,11 @@ public class BookHelper {
             pres.setString(4, aStation);
             pres.setString(5, sStation);
             pres.setString(6, eStation);
-            pres.setTime(7, dTime);
-            pres.setTime(8, aTime);
+            pres.setString(7, dTime);
+            pres.setString(8, aTime);
             pres.setInt(9, amount);
             pres.setInt(10, price);
-            pres.setDate(11, date);
+            pres.setString(11, date);
             pres.setString(12, type);
             pres.setTimestamp(13, Timestamp.valueOf(LocalDateTime.now()));
             
@@ -130,7 +130,7 @@ public class BookHelper {
             /** 取得資料庫之連線 */
             conn = DBMgr.getConnection();
             /** SQL指令 */
-            String sql = "SELECT * FROM `saproject`.`book` WHERE `member_id` = ?";
+            String sql = "SELECT * FROM `saproject`.`book` WHERE `memeber_id` = ?";
             
             /** 將參數回填至SQL指令當中 */
             pres = conn.prepareStatement(sql);
@@ -150,17 +150,17 @@ public class BookHelper {
                 
                 /** 將 ResultSet 之資料取出 */
                 int book_id = rs.getInt("ID");
-                int member_id = rs.getInt("member_id");
+                int member_id = rs.getInt("memeber_id");
                 int trainNO = rs.getInt("train_NO");
                 String dStation = rs.getString("departure_station");
                 String aStation = rs.getString("arrival_station");
                 String sStation = rs.getString("starting_station");
                 String eStation = rs.getString("ending_station");
-                Time dTime = rs.getTime("departure_time");
-                Time aTime = rs.getTime("arrival_time");
+                String dTime = rs.getString("departure_time");
+                String aTime = rs.getString("arrival_time");
                 int amount = rs.getInt("ticket_amount");
                 int price = rs.getInt("ticket_price");
-                Date date = rs.getDate("train_date");
+                String date = rs.getString("train_date");
                 String type = rs.getString("train_type");
                 
                 /** 將每一筆會員資料產生一名新Member物件 */
