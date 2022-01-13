@@ -224,13 +224,14 @@
     ></a>
     
     <script language="javascript" type="text/javascript">
+      
       $(document).ready(function() {
                     // 處理表單點擊事件
                     var $form = $('#submit');
-                    $form.click(function() {
-                        submit();
+                    $form.click(async function() {
+                        await submit();
                     });
-
+                    // console.log("aaaaaaa", submit());
                     function submit() {
                         // var name = $('#yourName').val();
                         var email = $('#yourEmail').val();
@@ -256,7 +257,7 @@
 
                             // 將JSON格式轉換成字串
                             var data_string = JSON.stringify(data_object);
-
+                            var memberId;
                             $.ajax({
                                 type: "POST",
                                 url: "api/login.do",
@@ -268,10 +269,12 @@
                                 success: function (response) {
                                   if (response.status == 200) {
                                     alert("取得成功");
-                                    var id = response['response']['data'][0]['id'];
-                                    alert(id);
-                        
-                                    document.location.href = "indexA.html?id="+id;
+                                    memberId = response['response']['data'][0]['id'];
+                                    alert(memberId);
+                                    
+                                    
+                                    document.location.href = "indexA.html?id="+memberId;
+                                    
                                     
                                   }
                                 },
@@ -279,8 +282,7 @@
                                   alert("無法連線到伺服器！");
                                 }
                               });
-                              return false;
-                          
+                              return memberId;
                         }
                     }
                     
@@ -322,6 +324,7 @@
                         $("#sql_summary").html("(default) " + data.row + " queries took " + time + " ms");
                     }
                 });
+                console.log("memberId", memberId)
     </script>
     <!-- Vendor JS Files -->
     <script src="assetsA/vendor/apexcharts/apexcharts.min.js"></script>

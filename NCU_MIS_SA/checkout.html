@@ -257,6 +257,7 @@
           date: date,
           departureStation: departureStation,
           arrivalStation: arrivalStation,
+          ticketAmount: ticketAmount,
         },
       ];
       for (let i = 0; i < parseInt(ticketAmount) - 1; i++) {
@@ -277,8 +278,8 @@
                       <small>出發時間:${data.originStopTime}→ 抵達時間:${data.destinationStopTime}</small>
                     </div>
                     <span class="text-muted">$${data.fares}</span>
-                  </li>
-                  `
+                </li>
+                `
         )}
         `;
       document.getElementById("ticketCount").innerHTML = `${ticketAmount}`;
