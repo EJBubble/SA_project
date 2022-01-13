@@ -83,14 +83,14 @@
       <ul>
         <li><a href="indexA.html" class="active">Home</a></li>
 
-        <li><a href="railway.html">關於台鐵</a></li>
-        <li><a href="travel.html">旅遊票券</a></li>
-        <li><a href="railwaypolice.html">鐵路警察局</a></li>
-        <li><a href="contact.html">聯絡客服</a></li>
-        <li><a href="train.html">列車查詢</a></li>
-        <li><a href="booking.html">訂票</a></li>
-        <li><a href="pagesLogin.html">登入</a></li>
-        <li><a href="pagesRegister.html">註冊</a></li>
+        <li><a href="railway.html" id="link1">關於台鐵</a></li>
+        <li><a href="travel.html" id="link2">旅遊票券</a></li>
+        <li><a href="railwaypolice.html" id="link3">鐵路警察局</a></li>
+        <li><a href="contact.html" id="link4">聯絡客服</a></li>
+        <li><a href="train.html" id="link5">列車查詢</a></li>
+        <li><a href="booking.html" id="link6">訂票</a></li>
+        <li><a href="pagesLogin.html" id="link7">登入</a></li>
+        <li><a href="pagesRegister.html" id="link8">註冊</a></li>
 
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
@@ -193,12 +193,12 @@
   //取得網址參數
   var url_string = window.location.href;
   var url = new URL(url_string);
-  var id = url.searchParams.get("id");
-  
+  //var id = url.searchParams.get("id");
+  var id = 1;
   function getOrderData() {
 	  $.ajax({
           type: "GET",
-          url: "api/order.do",
+          url: "api/book.do",
           data: "id=" + id,
           crossDomain: true,
           cache: false,
@@ -260,6 +260,23 @@
   }
   </script>
 
+  <script>
+    // console.log("helllo");
+    let memberId = new URL(location.href).searchParams.get("id");
+    console.log("memberId", memberId);
+    if(memberId){
+      console.log("123")
+      document.getElementById("link1").href += `?id=${memberId}` 
+      document.getElementById("link2").href += `?id=${memberId}` 
+      document.getElementById("link3").href += `?id=${memberId}` 
+      document.getElementById("link4").href += `?id=${memberId}` 
+      document.getElementById("link5").href += `?id=${memberId}` 
+      document.getElementById("link6").href += `?id=${memberId}` 
+      document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
+      document.getElementById("link7").innerHTML = "登出" 
+      document.getElementById("link8").innerHTML = "會員修改"
+    }
+  </script>
 </body>
 
 </html>
