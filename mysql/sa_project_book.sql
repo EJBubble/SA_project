@@ -24,25 +24,23 @@ DROP TABLE IF EXISTS `book`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `book` (
   `ID` int NOT NULL AUTO_INCREMENT,
+  `memeber_id` int NOT NULL,
+  `train_NO` int NOT NULL,
   `departure_station` varchar(64) NOT NULL,
   `arrival_station` varchar(64) NOT NULL,
-  `ticket_amount` int NOT NULL,
-  `ticket_price` int NOT NULL,
+  `starting_station` varchar(64) NOT NULL,
+  `ending_station` varchar(64) NOT NULL,
   `departure_time` time NOT NULL,
   `arrival_time` time NOT NULL,
+  `ticket_amount` int NOT NULL,
+  `ticket_price` int NOT NULL,
   `train_date` date NOT NULL,
-  `book_date` datetime NOT NULL,
+  `train_type` varchar(64) NOT NULL,
   `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `book_status` int NOT NULL,
-  `train_id` int NOT NULL,
-  `memeber_id` int NOT NULL,
   PRIMARY KEY (`ID`),
-  KEY `book_train_id_idx` (`train_id`),
   KEY `book_member_id_idx` (`memeber_id`),
-  CONSTRAINT `book_member_id` FOREIGN KEY (`memeber_id`) REFERENCES `member` (`ID`) ON UPDATE CASCADE,
-  CONSTRAINT `book_train_id` FOREIGN KEY (`train_id`) REFERENCES `train` (`ID`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+  CONSTRAINT `book_member_id` FOREIGN KEY (`memeber_id`) REFERENCES `member` (`ID`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,7 +49,6 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (1,'基隆','屏東',3,2610,'06:13:00','12:33:00','2022-01-14','2022-01-14 00:00:00','2022-01-12 10:00:00','2022-01-12 10:00:00',0,105,1);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -64,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-27 16:35:42
+-- Dump completed on 2022-01-13 17:29:03

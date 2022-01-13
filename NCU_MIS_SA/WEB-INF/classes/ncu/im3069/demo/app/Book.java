@@ -23,7 +23,7 @@ public class Book {
 	
 	private Timestamp bookDate;
 	
-	private int status;
+	private int status= 0;
 	
 	private int train_id;
 	
