@@ -162,6 +162,7 @@
                 <li><a href="booking.html" id="link6">訂票</a></li>
                 <li><a href="pagesLogin.html" id="link7">登入</a></li>
                 <li><a href="pagesRegister.html" id="link8">註冊</a></li>
+                <li><a href="trainOrderDetail.html" id="link9"></a></li>
 
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -370,21 +371,21 @@
 
     <script>
       // console.log("helllo");
-      let memberId = new URL(location.href).searchParams.get("id");
-      console.log("memberId", memberId);
-      if(memberId){
-        console.log("123")
-        document.getElementById("link1").href += `?id=${memberId}` 
-        document.getElementById("link2").href += `?id=${memberId}` 
-        document.getElementById("link3").href += `?id=${memberId}` 
-        document.getElementById("link4").href += `?id=${memberId}` 
-        document.getElementById("link5").href += `?id=${memberId}` 
-        document.getElementById("link6").href += `?id=${memberId}` 
-        document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
-        document.getElementById("link7").innerHTML = "登出" 
-        document.getElementById("link8").innerHTML = "會員修改"
-        document.getElementById("member").innerHTML =  `<input type="hidden" name="id" value="${memberId}"/>`
-      }
+      // let memberId = new URL(location.href).searchParams.get("id");
+      // console.log("memberId", memberId);
+      // if(memberId){
+      //   console.log("123")
+      //   document.getElementById("link1").href += `?id=${memberId}` 
+      //   document.getElementById("link2").href += `?id=${memberId}` 
+      //   document.getElementById("link3").href += `?id=${memberId}` 
+      //   document.getElementById("link4").href += `?id=${memberId}` 
+      //   document.getElementById("link5").href += `?id=${memberId}` 
+      //   document.getElementById("link6").href += `?id=${memberId}` 
+      //   document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
+      //   document.getElementById("link7").innerHTML = "登出" 
+      //   document.getElementById("link8").innerHTML = "會員修改"
+      //   document.getElementById("member").innerHTML =  `<input type="hidden" name="id" value="${memberId}"/>`
+      // }
       Date.prototype.yyyymmdd = function() {
         var mm = this.getMonth() + 1; // getMonth() is zero-based
         var dd = this.getDate();
@@ -564,6 +565,8 @@
         document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
         document.getElementById("link7").innerHTML = "登出" 
         document.getElementById("link8").innerHTML = "會員修改"
+        document.getElementById("link9").innerHTML = "我的車票"
+        document.getElementById("link9").href += `?id=${memberId}` 
       }
     </script>
 

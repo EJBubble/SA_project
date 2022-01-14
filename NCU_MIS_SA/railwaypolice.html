@@ -60,6 +60,7 @@
           <li><a href="booking.html" id="link6">訂票</a></li>
           <li><a href="pagesLogin.html" id="link7">登入</a></li>
           <li><a href="pagesRegister.html" id="link8">註冊</a></li>
+          <li><a href="trainOrderDetail.html" id="link9"></a></li>
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -154,6 +155,8 @@
       document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
       document.getElementById("link7").innerHTML = "登出" 
       document.getElementById("link8").innerHTML = "會員修改"
+      document.getElementById("link9").innerHTML = "我的車票"
+      document.getElementById("link9").href += `?id=${memberId}` 
     }
   </script>
 </body>
