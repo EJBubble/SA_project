@@ -41,7 +41,7 @@
                 // 全域變數紀錄SQL指令下的次數
                 var sql_num = 0;
                 function deleteMember(id) {
-                    var check = window.confirm("確認刪除會員？");
+                    var check = window.confirm("確認退票？");
                     if (check == true) {
                         console.log("You pressed OK!");
                         var request = {'id': id};
@@ -104,8 +104,8 @@
                         table_html += '<td>' + value['email'] + '</td>';
                         table_html += '<td>' + value['login_times'] + '</td>';
                         table_html += '<td>' + value['status'] + '</td>';
-                        table_html += '<td>' + '<a href="edit.html?id=' + value['id'] + '">編輯</a> | ';
-                        table_html += '<a href="javascript: deleteMember(' + value['id'] + ');">刪除</a></td></tr>';
+                        table_html += '<td>' + '<a href="edit.html?id=' + value['id'] + '">編輯</a>  ';
+                        table_html += '<a href="javascript: deleteMember(' + value['id'] + ');">退票</a></td></tr>';
                     })
 
                     $("#table > tbody").append(table_html);

@@ -182,6 +182,7 @@
                <th class="text-center" style="width: 15%">單價</th>
                <th class="text-center" style="width: 10%">數量</th>
                <th class="text-center" style="width: 15%">小計</th>
+               <th class="text-center" style="width: 15%">刪除</th>
              </tr>
            </thead>
            <tbody id="panel">
@@ -197,171 +198,43 @@
     var url = new URL(url_string);
     var id = url.searchParams.get("id");
     var sql_num = 0;
-
-
-
-    // function detele(id) {
-    //     var name = $('#member_name').val();
-    //     var email = $('#member_email').val();
-    //     var password = $('#member_password').val();
-
-    //     var password_rule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-    //     if(!password_rule.test(password)) {
-    //         alert("密碼格式不符，長度至少8，且至少包含一個數字和英文字母！");
-    //     }
-    //     else {
-    //         // 將資料組成JSON格式
-    //         var data_object = {
-    //             "id": id,
-    //             "name": name,
-    //             "email": email,
-    //             "password": password
-    //         };
-
-    //         // 將JSON格式轉換成字串
-    //         var data_string = JSON.stringify(data_object);
-
-    //         // 發出POST的PUT請求
-    //         $.ajax({
-    //                 type: "PUT",
-    //                 url: "api/member.do",
-    //                 data: data_string,
-    //                 crossDomain: true,
-    //                 cache: false,
-    //                 dataType: 'json',
-    //                 timeout: 5000,
-    //                 success: function (response) {
-    //                     $('#flashMessage').html(response.message);
-    //                     $('#flashMessage').show();
-    //                     if(response.status == 200){
-    //                         updateSQLTable(response.response);
-    //                         getMember();
-    //                     }
-    //                 },
-    //                 error: function () {
-    //                     alert("無法連線到伺服器！");
-    //                 }
-    //         });
-    //     }
-    // }
-
-    // // 更新SQL指令歷史表格
-    // function updateSQLTable(data) {
-    //     var time = (data.time / 1000000).toFixed(2);
-    //     var table_html = "";
-        
-    //     sql_num += 1
-
-    //     table_html += '<tr>';
-    //     table_html += '<td>' + sql_num + '</td>';
-    //     table_html += '<td>' + data.sql + '</td>';
-    //     table_html += '<td style="text-align: right">' + '0' + '</td>';
-    //     table_html += '<td style="text-align: right">' + data.row + '</td>';
-    //     table_html += '<td style="text-align: right">' + data.row + '</td>';
-    //     table_html += '<td style="text-align: right">' + time + '</td>';
-    //     table_html += '</tr>';
-    //     $("#sql_log > tbody").append(table_html);
-    //     $("#sql_summary").html("(default) " + data.row + " queries took " + time + " ms");
-    // }
-
-    function getTicket() {
-        $.ajax({
-            type: "GET",
-            url: "api/book.do",
-            crossDomain: true,
-            data: "id=" + id,
-            cache: false,
-            dataType: 'json',
-            timeout: 5000,
-            success: function (response) {
-                if(response.status == 200){
-                  //updateSQLTable(response.response);
-                }
-                console.log(response);
-            },
-            error: function () {
-                alert("無法連線到伺服器！");
-            }
-        });
-    }
-
-    // $('#submit').click(function() {
-    //     updateMember(id)
-    // });
     
-    $(document).ready(function() {
-      // 發出GET的AJAX請求取得原本該會員的資料
-       $("#sql_log > tbody").empty();
-        getTicket();
-    });
-</script>
 
-
-    // console.log("helllo");
-    let memberId = new URL(location.href).searchParams.get("id");
-    console.log("memberId", memberId);
-    if(memberId){
-      console.log("123")
-     
-      document.getElementById("link1").href += `?id=${memberId}` 
-      document.getElementById("link2").href += `?id=${memberId}` 
-      document.getElementById("link3").href += `?id=${memberId}` 
-      document.getElementById("link4").href += `?id=${memberId}` 
-      document.getElementById("link5").href += `?id=${memberId}` 
-      document.getElementById("link6").href += `?id=${memberId}` 
-      document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
-      document.getElementById("link7").innerHTML = "登出" 
-      document.getElementById("link8").innerHTML = "會員修改"
-      document.getElementById("link9").innerHTML += `我的車票` 
-      document.getElementById("link9").href += `?id=${memberId}` 
-    }
-
-    // function detele(id) {
-    //     var name = $('#member_name').val();
-    //     var email = $('#member_email').val();
-    //     var password = $('#member_password').val();
-
-    //     var password_rule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-    //     if(!password_rule.test(password)) {
-    //         alert("密碼格式不符，長度至少8，且至少包含一個數字和英文字母！");
-    //     }
-    //     else {
-    //         // 將資料組成JSON格式
-    //         var data_object = {
-    //             "id": id,
-    //             "name": name,
-    //             "email": email,
-    //             "password": password
-    //         };
-
-    //         // 將JSON格式轉換成字串
-    //         var data_string = JSON.stringify(data_object);
-
-    //         // 發出POST的PUT請求
-    //         $.ajax({
-    //                 type: "PUT",
-    //                 url: "api/member.do",
-    //                 data: data_string,
-    //                 crossDomain: true,
-    //                 cache: false,
-    //                 dataType: 'json',
-    //                 timeout: 5000,
-    //                 success: function (response) {
-    //                     $('#flashMessage').html(response.message);
-    //                     $('#flashMessage').show();
-    //                     if(response.status == 200){
-    //                         updateSQLTable(response.response);
-    //                         getMember();
-    //                     }
-    //                 },
-    //                 error: function () {
-    //                     alert("無法連線到伺服器！");
-    //                 }
-    //         });
-    //     }
-    // }
+    
+        
+            
+    function deleteTicket(id) {
+          var check = window.confirm("確認刪除？");
+          if (check == true) {
+              console.log("You pressed OK!");
+              var request = {'id': id};
+              var data_string = JSON.stringify(request);
+              $.ajax({
+                  type: "DELETE",
+                  url: "api/book.do",
+                  crossDomain: true,
+                  data: data_string,
+                  cache: false,
+                  dataType: 'json',
+                  timeout: 5000,
+                  success: function (response) {
+                      if(response.status == 200){
+                          $("#flashMessage").html("成功! 已經成功刪除會員...");
+                          $("#flashMessage").show();
+                          getTicket();
+                      }
+                      console.log(response);
+                  },
+                  error: function () {
+                      alert("無法連線到伺服器！");
+                  }
+              });
+          }
+          else {
+              console.log("You pressed Cancel!");
+          }
+      }
+    
 
     // // 更新SQL指令歷史表格
     // function updateSQLTable(data) {
@@ -413,8 +286,8 @@
             table_html += '<td>' + value['ticket_price']/value['ticket_amount'] + '</td>';
             table_html += '<td>' + value['ticket_amount'] + '</td>';
             table_html += '<td>' + value['ticket_price'] + '</td>';
-            // table_html += '<td>' + '<a href="edit.html?id=' + value['id'] + '">編輯</a> | ';
-            // table_html += '<a href="javascript: deleteMember(' + value['id'] + ');">刪除</a></td></tr>';
+            table_html += '<td>' + '<a href="edit.html?id=' + value['id'] + '"></a> | ';
+            table_html += '<a href="javascript: deleteTicket(' + value['id'] + ');">刪除</a></td></tr>';
         })
 
         $("#table > tbody").append(table_html);
@@ -432,9 +305,25 @@
 </script>
 
 
-  <script>
-
-  </script>
+<script>
+  // console.log("helllo");
+  let memberId = new URL(location.href).searchParams.get("id");
+  console.log("memberId", memberId);
+  if(memberId){
+    console.log("123")
+    document.getElementById("link1").href += `?id=${memberId}` 
+    document.getElementById("link2").href += `?id=${memberId}` 
+    document.getElementById("link3").href += `?id=${memberId}` 
+    document.getElementById("link4").href += `?id=${memberId}` 
+    document.getElementById("link5").href += `?id=${memberId}` 
+    document.getElementById("link6").href += `?id=${memberId}` 
+    document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
+    document.getElementById("link7").innerHTML = "登出" 
+    document.getElementById("link8").innerHTML = "會員修改"
+    document.getElementById("link9").innerHTML = "我的車票"
+    document.getElementById("link9").href += `?id=${memberId}` 
+  }
+</script>
 </body>
 
 </html>

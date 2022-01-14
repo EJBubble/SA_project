@@ -87,7 +87,7 @@
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>EZ訂火車 訂位好EZ</span></h2>
               <p>EZ訂火車在此為您提供最優質的台灣鐵路訂票服務。本網站結合交通部台鐵訂票系統及應用開放列車時刻資料，方便您隨時隨地掌握列車動態。</p>
-              <div class="text-center"><a href="booking.html" class="btn-get-started">去訂票</a></div>
+              <div class="text-center"><a href="booking.html" class="btn-get-started" id="bookingbtn">去訂票</a></div>
             </div>
           </div>
         </div>
@@ -387,6 +387,7 @@
       document.getElementById("link8").innerHTML = "會員修改"
       document.getElementById("link9").innerHTML = "我的車票"
       document.getElementById("link9").href += `?id=${memberId}` 
+      document.getElementById("bookingbtn").href += `?id=${memberId}` 
     }
   </script>
 

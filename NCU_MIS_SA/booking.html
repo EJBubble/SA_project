@@ -371,21 +371,22 @@
 
     <script>
       // console.log("helllo");
-      // let memberId = new URL(location.href).searchParams.get("id");
-      // console.log("memberId", memberId);
-      // if(memberId){
-      //   console.log("123")
-      //   document.getElementById("link1").href += `?id=${memberId}` 
-      //   document.getElementById("link2").href += `?id=${memberId}` 
-      //   document.getElementById("link3").href += `?id=${memberId}` 
-      //   document.getElementById("link4").href += `?id=${memberId}` 
-      //   document.getElementById("link5").href += `?id=${memberId}` 
-      //   document.getElementById("link6").href += `?id=${memberId}` 
-      //   document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
-      //   document.getElementById("link7").innerHTML = "登出" 
-      //   document.getElementById("link8").innerHTML = "會員修改"
-      //   document.getElementById("member").innerHTML =  `<input type="hidden" name="id" value="${memberId}"/>`
-      // }
+      let memberId = new URL(location.href).searchParams.get("id");
+      console.log("memberId", memberId);
+      if(memberId){
+        console.log("123")
+        document.getElementById("link1").href += `?id=${memberId}` 
+        document.getElementById("link2").href += `?id=${memberId}` 
+        document.getElementById("link3").href += `?id=${memberId}` 
+        document.getElementById("link4").href += `?id=${memberId}` 
+        document.getElementById("link5").href += `?id=${memberId}` 
+        document.getElementById("link6").href += `?id=${memberId}` 
+        document.getElementById("link8").href = `memberProfile.html?id=${memberId}`
+        document.getElementById("link7").innerHTML = "登出" 
+        document.getElementById("link8").innerHTML = "會員修改"
+        document.getElementById("link9").innerHTML = "我的車票"
+        document.getElementById("member").innerHTML =  `<input type="hidden" name="id" value="${memberId}"/>`
+      }
       Date.prototype.yyyymmdd = function() {
         var mm = this.getMonth() + 1; // getMonth() is zero-based
         var dd = this.getDate();
@@ -550,7 +551,7 @@
 
     </script>
 
-    <script>
+    <!-- <script>
       // console.log("helllo");
       let memberId = new URL(location.href).searchParams.get("id");
       console.log("memberId", memberId);
@@ -568,7 +569,7 @@
         document.getElementById("link9").innerHTML = "我的車票"
         document.getElementById("link9").href += `?id=${memberId}` 
       }
-    </script>
+    </script> -->
 
     <script>
       // 訂票處理
