@@ -39,7 +39,10 @@
         border-color: #0e9c26 !important;
       }
     </style>
-    <script src="statics/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script
+      src="statics/js/jquery-3.4.1.min.js"
+      crossorigin="anonymous"
+    ></script>
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-2.1.4.min.js"
@@ -186,7 +189,12 @@
               </div>
 
               <hr class="my-4" />
-              <input type="button" value="結帳" class="w-100 btn btn-success btn-lg" id="submit">
+              <input
+                type="button"
+                value="結帳"
+                class="w-100 btn btn-success btn-lg"
+                id="submit"
+              />
             </form>
           </div>
         </div>
@@ -255,9 +263,7 @@
           departureStation: departureStation,
           arrivalStation: arrivalStation,
 
-
-          ticketAmount: ticketAmount
-
+          ticketAmount: ticketAmount,
         },
       ];
       for (let i = 0; i < parseInt(ticketAmount) - 1; i++) {
@@ -291,71 +297,71 @@
       //   setButtonState("check", false);
       // } else getCartProduct();
 
-      $(document).ready(function() {
-                    // 處理表單點擊事件
-                    var $form = $('#submit');
-                    $form.click(function() {
-                        submit();
-                    });
+      $(document).ready(function () {
+        // 處理表單點擊事件
+        var $form = $("#submit");
+        $form.click(function () {
+          submit();
+        });
 
-                    function submit()   {
-                      var member_id = 1;
-                      var trainNo = TrainNo;
-                      var dStation = departureStation;
-                      var aStation = arrivalStation;
-                      var sStation = startingStation;
-                      var eStation = endingStationName;
-                      var dTime = originStopTime+":00";
-                      var aTime = destinationStopTime+":00";
-                      var amount = ticketAmount;
-                      var price = fares;
-                      var totalprice = amount*fares;
-                      var tdate = date;
-                      var type = TrainTypeName;
+        function submit() {
+          var url_string = window.location.href;
+          var url = new URL(url_string);
+          var member_id = url.searchParams.get("id");
+          var trainNo = TrainNo;
+          var dStation = departureStation;
+          var aStation = arrivalStation;
+          var sStation = startingStation;
+          var eStation = endingStationName;
+          var dTime = originStopTime + ":00";
+          var aTime = destinationStopTime + ":00";
+          var amount = ticketAmount;
+          var price = fares;
+          var totalprice = amount * fares;
+          var tdate = date;
+          var type = TrainTypeName;
 
-                      var data_object = {
-                        'mId': member_id,
-                        'trainNO': trainNo,
-                        'departureStation': dStation,
-                        'arrivalStation': aStation,
-                        'startingStation': sStation,
-                        'endingStation': eStation,
-                        'departureTime': dTime,
-                        'arrivalTime': aTime,
-                        'amount': amount,
-                        'price': totalprice,
-                        'date': tdate,
-                        'trainType': type  
-                         };
+          var data_object = {
+            mId: member_id,
+            trainNO: trainNo,
+            departureStation: dStation,
+            arrivalStation: aStation,
+            startingStation: sStation,
+            endingStation: eStation,
+            departureTime: dTime,
+            arrivalTime: aTime,
+            amount: amount,
+            price: totalprice,
+            date: tdate,
+            trainType: type,
+          };
 
-                            // 將JSON格式轉換成字串
-                      var data_string = JSON.stringify(data_object);
+          // 將JSON格式轉換成字串
+          var data_string = JSON.stringify(data_object);
 
-                            // 發出POST的AJAX請求
-                      $.ajax({
-                              type: "POST",
-                              url: "api/book.do",
-                              data: data_string,
-                              crossDomain: true,
-                              cache: false,
-                              dataType: 'json',
-                              timeout: 5000,
-                              success: function (response) {
-                                    $('#flashMessage').html(response.message);
-                                    $('#flashMessage').show();
-                                    if(response.status == 200){
-                                        //updateSQLTable(response.response);
-                                        alert("成功");
-                                        
-                                    }
-                              },
-                              error: function () {
-                                    alert("無法連線到伺服器！");
-                              }
-                            });
-                      }
-                  }
-      )
+          // 發出POST的AJAX請求
+          $.ajax({
+            type: "POST",
+            url: "api/book.do",
+            data: data_string,
+            crossDomain: true,
+            cache: false,
+            dataType: "json",
+            timeout: 5000,
+            success: function (response) {
+              $("#flashMessage").html(response.message);
+              $("#flashMessage").show();
+              if (response.status == 200) {
+                //updateSQLTable(response.response);
+                alert("成功");
+              }
+            },
+            error: function () {
+              alert("無法連線到伺服器！");
+            },
+          });
+        }
+      });
     </script>
 
     <script src="./assetsB/dist/js/bootstrap.bundle.min.js"></script>

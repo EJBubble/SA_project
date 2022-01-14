@@ -66,7 +66,7 @@ public class Log extends HttpServlet {
             /** 透過MemberHelper物件的getByID()方法自資料庫取回該名會員之資料，回傳之資料為JSONObject物件 */
             
             boolean check = mh.checkLogin(email, password);
-            System.out.print("check");
+            System.out.print(check);
             if (check == true)
             {
             	
