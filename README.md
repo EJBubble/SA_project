@@ -30,7 +30,8 @@
 管理。
 2. 專案開發階段預計採用 Apache、MySQL 等社群版軟體進行。
 3. 前後端之溝通與 API 之存取採用 JSON 格式進行溝通。
-4. 由於本系統將含有大量個人資料，資訊安全之保護須納入設計考量。
+4. 與台鐵API銜接，取得台鐵動態資料
+5. 由於本系統將含有大量個人資料，資訊安全之保護須納入設計考量。
 
 
 ---
@@ -111,6 +112,54 @@ DBMgr 與各功能相對應資料庫操作類別（例如：MemberHelper）和�
 ![7](ScreenShot/4.png)
   
 ---
+  
+## 系統循序圖 
+> 舉一為例
+
+主要依照使用案例圖（use case）與活動圖為基礎，進行設計階段之循序圖設計，將每個使用案例進行闡述。於此段，
+需要有明確之類別（class）名稱與呼叫之方法（method）與傳入之變數名稱與型態等細部設計之內容。
+	
+### Sequence Diagram—Use Case會員訂票
+![8](ScreenShot/5.png)
+
+1. 當顧客登入後即可進入訂票頁面（booking.html）。
+2. 當顧客完成表單之填寫並通過前端之資料驗證後，透過 JavaScript 之
+submit()送出 POST 請求。
+3. 後端以 OrderController 之 doPost()進行處理，以 JsonReader 取回 request 之
+參數，使用 OrderHelper 物件之 create()新增該名會員資料至資料庫當中。
+4. 回傳訂票之結果後，若訂票成功則透過 JavaScript 之 updateSQLTable()更新
+SQL 表格內之內
+	
+---
+
+## 實作畫面截圖
+### 登入
+![9](ScreenShot/13.png)
+
+### 選取列車資訊
+![10](ScreenShot/14.png)
+
+### 訂票
+![11](ScreenShot/15.png)
+	
+### 結帳
+![12](ScreenShot/16.png)
+
+### 查詢我的車票
+![13](ScreenShot/17.png)
+
+### 會員資料修改
+![14](ScreenShot/18.png)
+---
+## 專案人員
+- 資管三 鄭亦傑 資料庫設計、前後端串接ajax
+- 資管三 陳彥邦 API、前端HTML、JavaScript
+- 資管三 劉維仁 前端HTML
+- 財金四 周歆晏 前端HTML、撰寫系統設計文件
+- 資管三 林建佑 前端HTML、撰寫系統設計文件
+- 資管三 葉卉翊 撰寫系統設計文件
+
+
 
 
  
