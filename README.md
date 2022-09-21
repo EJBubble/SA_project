@@ -153,7 +153,7 @@ SQL 表格內之內
 ---
 ## 專案人員
 - 資管三 鄭亦傑 資料庫設計、前後端串接ajax、後端java
-- 資管三 陳彥邦 API、前端HTML、JavaScript
+- 資管三 陳彥邦 火車API、前端HTML、JavaScript
 - 資管三 劉維仁 前端HTML
 - 財金四 周歆晏 前端HTML、撰寫系統設計文件
 - 資管三 林建佑 前端HTML、撰寫系統設計文件
